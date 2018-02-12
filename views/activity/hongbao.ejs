@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>月享红包</title>
+  <link rel="stylesheet" href="/stylesheets/common.css">
+  <link rel="stylesheet" href="/stylesheets/tequan.css">
+  <link rel="stylesheet" href="/stylesheets/swiper-3.4.2.min.css">
+  <script src="/javascripts/commen/rem.js"></script>
+  <style>
+    .swiper-pagination-bullet {
+      background-color: #fcdedc;
+      opacity: 1;
+    }
+    .swiper-pagination-bullet-active {
+      background-color: #ef5a50;
+    }
+
+    .red .top {
+      background-color: #ef5a50;
+    }
+    .red .bottom {
+      color: #ef5a50;
+    }
+    .yellow .top {
+      background-color: #ffc73f;
+    }
+    .yellow .bottom {
+      color: #ef5a50;
+    }
+    .gray .top {
+      background-color: #cccccc;
+    }
+    .gray .bottom {
+      color: #cccccc;
+    }
+    .f-l {float: left;} .f-r {float: right;}
+
+    .container {
+      padding: 0rem .8rem;
+    }
+    html, body {
+      position: relative;
+    }
+    body {
+      font-size: 14px;
+      color:#000;
+    }
+    .swiper-container {
+      width: 100%;
+      height: 20rem;
+    }
+    .swiper-slide {
+      font-size: 18px;
+      padding: 0 .8rem;
+      box-sizing: border-box;
+
+      /* Center slide text vertically */
+      /* display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center; */
+      font-size: 0;
+    }
+    .swiper-sec {
+      text-align: center;
+      width: 48%;
+      font-size: 16px;
+      box-shadow: 2px 2px 10px rgba(0,0,0,.6);
+      border-radius: 2px;
+      overflow: hidden;
+      display: inline-block;
+      margin-bottom: .8rem;
+    }
+    .swiper-sec .top {
+      height: 5rem;
+      /* background-color: #ef5a50; */
+      color: #ffffff;
+      padding: .5rem 0;
+    }
+    .swiper-sec .bottom {
+      /* color: #ef5a50; */
+      font-size: .8rem;
+      height: 2rem;
+      line-height: 2rem;
+      position: relative;
+    }
+    .juchi {
+      position: absolute;
+      bottom: 97%;
+      left: 0;
+      width: 100%;
+      height: 0.2rem;
+      background-image: url('/images/rank/juchi.png');
+      background-repeat: repeat-x;
+      background-size: auto 100%;
+    }
+    .quan {
+      position: relative;
+      display: inline-block;
+      font-size: .6rem;
+      letter-spacing: 2px;
+    }
+    .quan::before, .quan::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 1.2rem;
+      height: 1px;
+      background-color: #ffffff;
+      left: 120%;
+    }
+    .quan::after {
+      left: auto;
+      right: 120%;
+    }
+    .num {
+      font-size: 1.8rem;
+      display: inline-block;
+      position: relative;
+      line-height: 1;
+      margin: .3rem 0;
+    }
+    .num > span {
+      font-size: 1rem;
+      position: absolute;
+      right: 100%;
+      top: 0;
+    }
+    .tiao {
+      font-size: .6rem;
+    }
+    .l-m {
+      margin-right: 3%;
+    }
+
+    .login-box {
+      padding: 1rem .8rem .5rem .8rem;
+      font-size: .75rem;
+      line-height: 2;
+      color: #333333;
+    }
+    .login-info {
+      color: #ef5a50;
+    }
+    .promote {
+      float: right;
+      color: #ef5a50;
+      position: relative;
+      padding-right: .8rem;
+    }
+    .promote::before {
+      position: absolute;
+      width: 0.6rem;
+      height: 0.7rem;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      content: '';
+      background-image: url('/images/rank/next.png');
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+    }
+
+    .shadow {
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,.5);
+      display: none;
+    }
+
+    .tip-box {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #ffffff;
+      width: 80%;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .tip-box > .title {
+      background-color: #f5f5f5;
+      color: #333333;
+      text-align: center;
+      font-size: .75rem;
+      line-height: 2.5;
+      padding-left: 0;
+    }
+    .tip-box .real {
+      padding: 1rem 0;
+      color: #333333;
+    }
+    .tip-box .btn-box {
+      font-size: 0;
+      display: table;
+      width: 100%;
+    }
+    .tip-box .cancel, .tip-box .confirm {
+      display: table-cell;
+      width: 50%;
+      font-size: .75rem;
+      text-align: center;
+      line-height: 2.5;
+      box-sizing: border-box;
+    }
+    .cancel {
+      color: #666666;
+      border-top: 1px solid #cccccc;
+    }
+    .confirm {
+      color: #ffffff;
+      background-color: #ef5a50;
+    }
+    .quanzi {
+      padding-left: .8rem;
+      padding-right: .8rem;
+      padding-bottom: 1.6rem;
+    }
+    .toll {
+      border-radius: 2px;
+      color: #ffffff;
+      border-radius: 2px;
+      overflow: hidden;
+      box-shadow: 2px 2px 10px rgba(0,0,0,.5);
+    }
+    .toll .top {
+      padding: .3rem;
+    }
+    .toll .sec-1 {
+      font-size: .7rem;
+    }
+    .toll .sec-2 {
+      font-size: .6rem;
+      text-align: right;
+      margin-top: .2rem;
+      margin-bottom: .2rem;
+    }
+    .toll .sec-3 {
+      font-size: .55rem;
+      line-height: 2;
+    }
+    .toll .value {
+      display: inline-block;
+      font-size: 1.4rem;
+      vertical-align: top;
+      line-height: 1;
+      position: relative;
+    }
+    .toll .icons {
+      position: absolute;
+      right: 100%;
+      top: .2rem;
+      font-size: .7rem;
+      font-style: normal;
+    }
+    .toll .ban {
+      position: relative;
+      display: inline-block;
+      font-size: .55rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    } 
+    .toll .ban::before, .toll .ban::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: .6rem;
+      height: 1px;
+      background-color: #ffffff;
+      left: 80%;
+    }
+    .toll .ban::after {
+      left: auto;
+      right: 80%;
+    }
+    .toll .bottom {
+      color: #666666;
+      line-height: 3;
+      font-size: .55rem;
+      padding-left: .3rem;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <!-- 与app加needLogin -->
+  <div class="login-box">
+    <p>当月已领取张数: <span class="login-info">1</span></p>
+    <p>当月还可再领取张数: <span class="login-info">1</span> <span class="promote">去提升等级</span></p>
+  </div>
+  <div class="login-box">
+    <p>当月已领取张数:  请登<span class="login-info">录后</span>查看</p>
+    <p>当月还可再领取张数: 请登<span class="login-info">录后</span>查看</p>
+  </div>
+
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide ">
+        <div data-type="1" class="swiper-sec l-m red">
+          <div class="top">
+            <p class="quan">抵现券</p>
+            <br />
+            <p class="num"><span>￥</span>50</p>
+            <p class="tiao">满500可用</p>
+          </div>
+          <div class="bottom">
+            <span class="juchi"></span>
+            立即领取
+          </div>
+        </div>
+        <div data-type="0" class="swiper-sec gray">
+          <div class="top">
+            <p class="quan">抵现券</p>
+            <br />
+            <p class="num"><span>￥</span>50</p>
+            <p class="tiao">满500可用</p>
+          </div>
+          <div class="bottom">
+            <span class="juchi"></span>
+            立即领取
+          </div>
+        </div>
+        <div data-type="2" class="swiper-sec l-m yellow">
+          <div class="top">
+            <p class="quan">加息券</p>
+            <br />
+            <p class="num">1%</p>
+            <p class="tiao">最高加息本金10万</p>
+          </div>
+          <div class="bottom">
+            <span class="juchi"></span>
+            立即领取
+          </div>
+        </div>
+        <div data-type="0" class="swiper-sec gray">
+          <div class="top">
+            <p class="quan">抵现券</p>
+            <br />
+            <p class="num"><span>￥</span>50</p>
+            <p class="tiao">满500可用</p>
+          </div>
+          <div class="bottom">
+            <span class="juchi"></span>
+            立即领取
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide ">
+        <div data-type="1" class="swiper-sec l-m red">
+          <div class="top">
+            <p class="quan">抵现券</p>
+            <br />
+            <p class="num"><span>￥</span>50</p>
+            <p class="tiao">满500可用</p>
+          </div>
+          <div class="bottom">
+            <span class="juchi"></span>
+            立即领取
+          </div>
+        </div>
+        <div data-type="0" class="swiper-sec gray">
+          <div class="top">
+            <p class="quan">抵现券</p>
+            <br />
+            <p class="num"><span>￥</span>50</p>
+            <p class="tiao">满500可用</p>
+          </div>
+          <div class="bottom">
+            <span class="juchi"></span>
+            立即领取
+          </div>
+        </div>
+        <div data-type="2" class="swiper-sec l-m yellow">
+          <div class="top">
+            <p class="quan">加息券</p>
+            <br />
+            <p class="num">1%</p>
+            <p class="tiao">最高加息本金10万</p>
+          </div>
+          <div class="bottom">
+            <span class="juchi"></span>
+            立即领取
+          </div>
+        </div>
+        <div data-type="0" class="swiper-sec gray">
+          <div class="top">
+            <p class="quan">抵现券</p>
+            <br />
+            <p class="num"><span>￥</span>50</p>
+            <p class="tiao">满500可用</p>
+          </div>
+          <div class="bottom">
+            <span class="juchi"></span>
+            立即领取
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+    
+    <!-- 如果需要导航按钮 -->
+    <!-- <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div> -->
+    
+    <!-- 如果需要滚动条 -->
+    <!-- <div class="swiper-scrollbar"></div> -->
+  </div>
+
+  <div class="container">
+    <p class="title">
+      <span class="icon"></span>
+      权益介绍
+    </p>
+    <p class="line">人生，就是不断地打怪升级。在爱投资每一次升级，都有惊喜礼包等着你！等级越高，礼包越大~</p>
+    
+    <p class="title">
+      <span class="icon icon-2"></span>
+      规则说明
+    </p>
+    <p class="line">1.会员生日以注册时的身份证信息为准，当日0点所在的会员等级对应领取相应的礼包。</p>
+    <p class="line">2.生日当天起一周内可领取礼包，逾期不可领取。</p>
+    
+    <p class="title">
+      <span class="icon icon-3"></span>
+      权益详情
+    </p>
+
+    <div class="rank">
+      <div class="item">
+        <span class="item-l">会员等级</span>
+        <span class="item-r">生日礼包</span>
+      </div>
+      <div class="item">
+        <span class="item-l"><i class="rank-icon"></i></span>
+        <span class="item-r">88</span>
+      </div>
+      <div class="item">
+        <span class="item-l"><i class="rank-icon rank-icon-2"></i></span>
+        <span class="item-r">188</span>
+      </div>
+      <div class="item">
+        <span class="item-l"><i class="rank-icon rank-icon-3"></i></span>
+        <span class="item-r">288</span>
+      </div>
+      <div class="item">
+        <span class="item-l"><i class="rank-icon rank-icon-4"></i></span>
+        <span class="item-r">588</span>
+      </div>
+      <div class="item">
+        <span class="item-l"><i class="rank-icon rank-icon-5"></i></span>
+        <span class="item-r">888</span>
+      </div>
+      <div class="item">
+        <span class="item-l"><i class="rank-icon rank-icon-6"></i></span>
+        <span class="item-r">1888</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="shadow">
+    <div class="tip-box">
+      <p class="title">领取提示</p>
+      <div class="quanzi">
+        <p class="real">爱亲，你确认要领取下面这张优惠券吗？</p>
+        
+        <div class="toll">
+          <div class="top">
+            <p class="sec-1">月享红包<span class="ban f-r">抵现券</span></p>
+            <p class="sec-2">
+              <span class="f-l">满10,000可抵100</span>
+              <span class="value"></span>
+            </p>
+            <p class="sec-3">有效期：自领取之日起30天（含当日）</p>
+          </div>
+          <p class="bottom">
+            <span class="juchi"></span>
+            使用范围：省心计划6个月及以上项目可用
+          </p>
+        </div>
+      </div>
+      <p class="btn-box">
+        <span class="cancel">取消</span>
+        <span class="confirm">确认领取</span>
+      </p>
+    </div>
+  </div>
+
+  <script src="/javascripts/commen/jquery.1.9.1.js"></script>  
+  <script src="/javascripts/swiper-3.4.2.min.js"></script>
+  <script>        
+    var swiper = new Swiper('.swiper-container', {
+      pagination: '.swiper-pagination',
+      paginationClickable: true,
+      loop: true
+    });
+
+
+    var $cancel = $('.cancel'),
+        $confirm = $('.confirm'),
+        $shadow = $('.shadow'),
+        $swiperWrapper = $('.swiper-wrapper'),
+        $toll = $('.toll'),
+        $value = $('.value');
+    
+    $cancel.click(function() {
+      $shadow.hide();
+    });
+    $confirm.click(function() {
+      $shadow.hide();
+    });
+    $swiperWrapper.on('click', '.swiper-sec', function() {
+      var type = $(this).data('type');
+      if (type == 1) {
+        $toll.removeClass('yellow').addClass('red');
+        $value.html('<i class="icons">￥</i>5000');
+        $shadow.show();
+        return false;
+      };
+      if (type == 2) {
+        $value.html('1%');
+        $toll.removeClass('red').addClass('yellow');
+        $shadow.show();
+        return false;
+      };
+      if (type == 0) {
+        return false;
+      };
+    });
+  </script>
+</body>
+</html>

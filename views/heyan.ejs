@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/stylesheets/common.css">
+  <script src="/javascripts/commen/rem.js"></script>
+  <style>
+    .banner {
+      width: 100%;
+      display: block;
+    }
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-bottom: 2rem;
+      font-size: .65rem;
+      line-height: 2;
+    }
+    .tit {
+      color: #1b2b46;
+      margin-top: .6rem;
+      margin-bottom: .4rem;
+    }
+    .tit:first-child {
+      margin-top: .4rem;
+    }
+    .lin {
+      color: #666666;
+    }
+
+    .cnt {
+      padding-top: .8rem;
+      color: #666666;
+      line-height: 1.5;
+    }
+    .row {
+      display: table;
+    }
+    .row:first-child {
+      margin-bottom: 2rem;
+    }
+    .item {
+      display: table-cell;
+      text-align: center;
+      position: relative;
+    }
+    .item > img {
+      width: 50%;
+    }
+    .item > .zhi {
+      width: 20%;
+      right: -1rem;
+      top: 2rem;
+      position: absolute;
+    }
+    .zhi-2 {
+      -webkit-transform: rotate(90deg);
+          -ms-transform: rotate(90deg);
+              transform: rotate(90deg);
+      top: 6.5rem !important;
+      right: 3rem !important;
+    } 
+    .zhi-3 {
+      -webkit-transform: rotate(180deg);
+          -ms-transform: rotate(180deg);
+              transform: rotate(180deg);
+    }
+    .qcode{
+      display: block;
+      margin-top: 2rem;
+      margin-left: auto;
+      margin-right: auto;
+      width: 40%;
+    }
+    .line {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <img class="banner" src="/images/heyan/banner.jpg">
+  <div class="container">
+    <p class="tit">爱投资主动接入国家平台接受投资核验</p>
+    <p class="lin">2016年，国家互联网金融安全技术专家委员会成立。是由工业和信息化部指导，联合“一行三会”等金融监管机构，依托国家和联网应急中心成立的专门针对全国互联网金融风险的分析研判机构。</p>
+    <p class="lin">爱投资一直积极拥抱监管、合法合规运营，把平台信息披露及透明化建设作为重中之重。主动接入技术平台之后，将全面接受出借人、社会大众、独立第三方法律机构、审计机构、监管层的监督与查询。</p>
+    
+    <p class="tit">什么是国家平台投资核验</p>
+    <p class="lin">投资核验是专委会于2017年4月开展的“全国互联网金融阳光计划”中的重要一环。其指在解决互金企业运营数据的不透明和不可信问题，使投资者能够实时了解互金企业的实际运营情况，督促投资平台透明化、阳光化运营，有利于保护投资者的权益。</p>
+    <p class="lin">“投资核验功能”依托于国家互联网金融风险分析技术系统，由专委会提供技术支持。</p>
+
+    <p class="tit">如何进行投资核验</p>
+    <div class="cnt">
+      <div class="row">
+        <div class="item">
+          <img src="/images/heyan/img-01.png">
+          <p>第一步  下载安装</p>
+          <p>“理财助手”APP</p>
+          <img class="zhi zhi-1" src="/images/heyan/zhi.png">
+        </div>
+        <div class="item">
+          <img src="/images/heyan/img-02.png">
+          <p>第二步  注册并登录</p>
+          <img class="zhi zhi-2" src="/images/heyan/zhi.png">
+        </div>
+      </div>
+      <div class="row">
+        <div class="item">
+          <img src="/images/heyan/img-03.png">
+          <p>第三步  完成实名认证</p>
+          <img class="zhi zhi-3" src="/images/heyan/zhi.png">
+        </div>
+        <div class="item">
+          <img src="/images/heyan/img-04.png">
+          <p>第四步  投资核验</p>
+        </div>
+      </div>
+    </div>
+
+    <img class="qcode" src="/images/heyan/qcode.jpg">
+    <p class="lin line">下载APP，立即核验</p>
+  </div>
+</body>
+</html>

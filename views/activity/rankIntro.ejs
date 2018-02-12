@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>会员等级规则介绍</title>
+  <link rel="stylesheet" href="/stylesheets/common.css">
+  <script src="/javascripts/commen/rem.js"></script>
+  <style>
+    .container {
+      padding: 1rem .8rem;
+    }
+    .line {
+      font-size: .7rem;
+      line-height: 1.8;
+      color: #333333;
+    }
+    .rank {
+      margin-top: 1rem;
+      margin-bottom: 1.4rem;
+      border: 1px solid #cccccc;
+    }
+    .item {
+      display: table;
+      width: 100%;
+      font-size: .75rem;
+      color: #333333;
+      text-align: center;
+      border-top: 1px solid #cccccc;
+    }
+    .item:first-child {
+      border-top: none;
+      background-color: #f3f4f9;
+    }
+    .item-l, .item-r {
+      display: table-cell;
+      padding-top: .5rem;
+      padding-bottom: .5rem;
+    }
+    .item-l {
+      width: 30%;
+      border-right: 1px solid #cccccc;
+    }
+    .item-r {
+      width: 70%;
+    }
+    .icon {
+      width: 17px;
+      height: 11px;
+      display: inline-block;
+      background-image: url('/images/rank/sprit.png');
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+    }
+    .icon-2 {
+      background-position-y: -13px;
+    }
+    .icon-3 {
+      background-position-y: -25px;
+    }
+    .icon-4 {
+      background-position-y: -37px;
+    }
+    .icon-5 {
+      background-position-y: -48px;
+    }
+    .icon-6 {
+      background-position-y: -60px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p class="line">1.会员成长体系包含6个级别，由用户“在投本金”决定，用户当前在投本金越高，会员级别越高。只要在投本金达到相应级别条件，可立即提升至该等级。</p>
+    
+    <div class="rank">
+      <div class="item">
+        <span class="item-l">会员等级</span>
+        <span class="item-r">在投本金（万）</span>
+      </div>
+      <div class="item">
+        <span class="item-l"><i class="icon"></i></span>
+        <span class="item-r">0≤X&lt;5</span>
+      </div>
+      <div class="item">
+        <span class="item-l"><i class="icon icon-2"></i></span>
+        <span class="item-r">5≤X&lt;20</span>
+      </div>
+      <div class="item">
+        <span class="item-l"><i class="icon icon-3"></i></span>
+        <span class="item-r">20≤X&lt;50</span>
+      </div>
+      <div class="item">
+        <span class="item-l"><i class="icon icon-4"></i></span>
+        <span class="item-r">50≤X&lt;100</span>
+      </div>
+      <div class="item">
+        <span class="item-l"><i class="icon icon-5"></i></span>
+        <span class="item-r">100≤X&lt;500</span>
+      </div>
+      <div class="item">
+        <span class="item-l"><i class="icon icon-6"></i></span>
+        <span class="item-r">X≥500</span>
+      </div>
+    </div>
+    
+    <p class="line">2.降级规则：连续一个月不满足所处级别要求的在投金额时会在第31天的凌晨降至在投本金对应区间的等级。</p>
+  </div>
+</body>
+</html>

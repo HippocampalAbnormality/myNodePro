@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>记录</title>
+  <link rel="stylesheet" href="/stylesheets/common.css">
+  <script src="/javascripts/commen/rem.js"></script>
+  <style>
+    body {
+      background-color: #eeeeee;
+    }
+    .record {
+
+    }
+    .item {
+      padding-left: 4%;
+      padding-right: 4%;
+      background-color: #ffffff;
+    }
+    .record .head {
+      position: relative;
+      padding-left: 1.2rem;
+      padding-top: .6rem;
+      padding-bottom: .6rem;
+      font-size: .7rem;
+      line-height: 1;
+      color: #333333;
+    }
+    .icon {
+      display: inline-block;
+      width: .9rem;
+      height: .9rem;
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+    }
+    .icon-tag {
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAMAAADW3miqAAABSlBMVEUAAABQv/ZCxfRduflssvwyzPFPv/co0PA2yvIyzPJ1rv0n0e9yr/11rv1usfxqs/swzfE0y/FbufhPv/ZDxPRos/s2yvIuzvBgt/k+xvNxsPxntPs3yfItzvBIwvV2rf1WvPgn0e9zr/1ltfo5yfIrz/B1rv1fuPlAxvQo0O92rf1auvh0rv1ktvp4rf12rf01y/L+//9ktvpusfxfuPk3yvIyzPFGw/VBxfRauvhntPsrz/Bqs/tUvfg9x/MvzvFOv/ZysP07yPN0rv2j3PtRvvdKwfWm2/tMwPbY9P3N8P2p2vx60vjy+/6s2P1u1/Yo0O+Y4fmg3vqBz/l21Pjl+P7o9v6HzPuKyvuu6/qDzvp90PhbzfWSx/y77vqU2fqP3Ph/2fhm0fZSx/ZS0fTA6/uz6Pus4ft5yflgwPhszvdmyPdNyvVBz/I4hRwXAAAAMXRSTlMACRUD+vnKx0Qh2NfOx+3t7OzY2NfOzs7GxaWlpaScm5qaaWloaFlZWVlFRCEhFQMCElVbDQAAAghJREFUOMt11PdX4kAQB/BFmiDYe+/d84aWIIdGQWNCokeRbjnPK7b//1eHMLsGDN/34OWHz9vZ2Z2E2RPYWJga9npHJufXA8wx7h1/KnVykkgk4vH42fHMtvur6R9I2c2xLI/3dxHXys9uI0vSostu+vxORrrw9dnMgLO5VMaEcvl7GeXcxyuu9Dbp9DL1RaZ29/TVpJN7LfOder8G87qVR7lUKhmG0Xi1THLUjWinbd41aEeX6SFrmWRsCxGd8x1o+Rr+8g8SQKFQ0BFZJjaN90V7rplPZ3nI434Q4X6yiCwTixywDepLu9H1G8A//QUA94yITGSNLVDvIGIAYF9ZUMlE5tjU5/n8Anho9Q6AfSEiczTBhoV5NAFAMy4VWlElczTEvGIdE7TffwH+cZQj88ODyDJNHdBIF/fm/TmdDzeIRtrrvGnmH+iIMNFBNkn31WyWOpEw0RCbF3dqgK4ovBaAMNFZts4NonIhi1FVNZcDEOZ0lQXEbBjQEWEy+4zN8PlpgFYs1uuVSqVarQJwcxpmjG2TURpQplq5qysAbjKbiNzjNIdF6Ag3wUNrfGlWi1CmdTAAZDK7zMqiZdLP9f+f53x7S2aJv1I+NN13QSbsEi/nWC8T/MYNKp+zCZGhistOZolqieyNdpvgrsNHbGvabsKbh8wxB2tzE0Mez2BodnWf2fIBIznp2pHxy6kAAAAASUVORK5CYII=');
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+    .icon-time {
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAYCAMAAADTXB33AAAAflBMVEUAAADvWlDvWlDvWlDvWlDvWlDvWlDvWlDvWlDvWlDvWlDvWlDvWlDvWlDvWlDvWlDvWlDvWlDvWlDvWlDvWlDvWlDvWlDvWlDvWlDvWlDvWlDvWlDvWlDvWlDvWlDvWlDvWlDvWlDvWlDvWlDvWlDvWlDvWlDvWlDvWlDvWlAJNuTuAAAAKnRSTlMABuwRw0vn4r3ILXZvXxz10JlcVD80C9bMtrGmlIeCZ1JFKRj+264loVd0dEkbAAAA2UlEQVQoz23R1xaDIAwA0IS2gLjrtm47//8HW6EOlDwkHi4nRIA5MAoDQhhvBOiBDrXsfvCGqKI82YqXn5N1F2lwEcFsWWuhNga32Tzqqo/zRdXUqv7Ea9AJRtbJGmW4J+iYXMsjOBBY0xkDQQNd+S85NzDQyUeA0DYRMAHwvBrJijUqfCLDkaQ1xJMK/Dd03rCGPoagJvrwKWcXA/F2ym6OB+lpqua095I+3PlROl2wXG4ooa02HS/WI15Z+Vpvloa4bV6Twk1GHOPmEfT7f2xLdr/7QRXPK1/FVQrXP2EUhAAAAABJRU5ErkJggg==');
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      width: .9rem;
+      height: .9rem;
+    }
+    .top, .btm {
+      display: flex;
+      line-height: 1;
+    }
+    .top .items, .btm .items {
+      width: 35%;
+    }
+    .top .items:last-child, .btm .items:last-child {
+      width: 30%;
+    }
+    .top {
+      color: #333333;
+      font-size: .75rem;
+      padding-top: 1rem;
+      padding-bottom: .5rem;
+    }
+    .btm {
+      padding-bottom: .5rem;
+      color: #999999;
+      font-size: .65rem;
+    }
+    .time {
+      color: #999999;
+      font-size: .7rem;
+      position: relative;
+      padding-left: 1.3rem;
+      padding-top: .5rem;
+      padding-bottom: .5rem;
+    }
+    .red {
+      color: #EF5A50;
+      position: relative;
+    }
+    .add {
+      position: absolute;
+      bottom: 130%;
+      left: 70%;
+      padding-top: .1rem;
+      padding-right: .1rem;
+      padding-bottom: .15rem;
+      padding-left: .1rem;
+      line-height: 1;
+      border-radius: 3px;
+      border: 1px solid #EF5A50; 
+      font-size: .6rem;
+      box-sizing: border-box;
+    }
+    .add:before {
+      box-sizing: border-box;
+      content: '';
+      position: absolute;
+      width: 0.25rem;
+      height: 0.25rem;
+      border-left: 1px solid #EF5A50;
+      border-bottom: 1px solid #EF5A50;
+      transform: rotate(-45deg);
+      top: 94%;
+      left: 20%;
+      background-color: #ffffff;
+      z-index: 1;
+    }
+    .more {
+      color: #aaaaaa;
+      font-size: .7rem;
+      text-align: center;
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+    .word {
+      display: inline-block;
+      position: relative;
+    }
+    .word::before, .word::after {
+      content: '';
+      position: absolute; 
+      top: 50%;
+      left: 130%;
+      width: 4rem;
+      height: 1px;
+      background-color: #aaaaaa;
+    }
+    .word::after {
+      left: auto;
+      right: 130%;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="record">
+    <div class="item">
+      <p class="head">
+        <i class="icon icon-tag"></i>智选计划
+      </p>
+      
+      <div class="cnt">
+        <div class="top">
+          <p class="items red">5.50%~13.00%<span class="add">+5.55%</span></p>
+          <p class="items">1,000,00.00</p>
+          <p class="items">100.00</p>
+        </div>
+        <div class="btm">
+          <p class="items">年化收益</p>
+          <p class="items">在投金额(元)</p>
+          <p class="items">累计收益(元)</p>
+        </div>
+      </div>
+      
+      <p class="time">
+        <i class="icon icon-time"></i>2017-11-30起投
+      </p>
+    </div>
+  </div>
+  <div class="more"><span class="word">没有更多了</span></div>
+</body>
+</html>

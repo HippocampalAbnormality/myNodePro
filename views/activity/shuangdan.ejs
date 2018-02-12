@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="/stylesheets/common.css">
+  <script src="/javascripts/commen/rem.js"></script>
+  <style>
+    body {
+      background-color: #BE2829;
+    }
+    .container {
+      position: relative;
+      padding-top: 10.2rem;
+    }
+    .bg {
+      width: 100%;
+      position: absolute;
+      top: 0; left: 0;
+      z-index: 1;
+    }
+    .timer, .gift-box, .gift-bg, .gift-btm, .btn, .rules, .take, .isTake, .win, .cnt-gift-box, .submit {
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
+    .timer {
+      position: absolute;
+      width: 86%;
+      top: 6rem; left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      color: #BE2829;
+      text-align: center;
+      padding-top: .2rem;
+      padding-bottom: .2rem;
+      background-image: url('/images/shuangdan/timer.png');
+      line-height: 1;
+      font-size: .6rem;
+    }
+    .gift-box {
+      text-align: justify;
+      position: relative;
+      z-index: 3;
+      width: 96%;
+      background-image: url('/images/shuangdan/gift-box.png');
+      height: 30rem;
+      margin: 0 auto;
+      font-size: 0;
+      padding-top: 2rem;
+      padding-left: .8rem;
+      padding-right: .8rem;
+      box-sizing: border-box;
+    }
+    .gift-box:after {
+      content: '';
+      display: inline-block;
+      width: 100%;
+    }
+    .gift-item {
+      width: 49%;
+      display: inline-block;
+    }
+    .gift-item:last-child .tip {
+      visibility: hidden;
+    }
+    .gift-bg, .gift-btm {
+      margin: auto;
+    }
+    .gift-bg {
+      width: 6.45rem;
+      height: 6.6rem;
+      background-image: url('/images/shuangdan/gift-bg.png');
+      position: relative;
+      z-index: 2;
+      font-size: 0;
+      text-align: center;
+      padding-top: .8rem;
+      box-sizing: border-box;
+    }
+    .take, .isTake {
+      position: absolute;
+      left: 0; top: 0;
+      width: 2.7rem;
+      height: 2.7rem;
+      z-index: 2;
+      background-image: url('/images/shuangdan/take.png');
+    }
+    .isTake {
+      background-image: url('/images/shuangdan/isTake.png');
+    }
+    .gift-btm {
+      width: 96%;
+      height: 1rem;
+      background-image: url('/images/shuangdan/gift-btm.png');
+      position: relative;
+      top: -.4rem;
+    }
+    .shadow {
+      position: absolute;
+      left: 0; top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, .7);
+      border-radius: 8px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+    }
+    .isShow {
+      display: flex;
+      pointer-events: none;
+    }
+    .want {
+      color: rgba(255, 255, 255, .8);
+      font-size: .65rem;
+    }
+    
+    .gift {
+      width: 5.35rem;
+    }
+    .tit {
+      font-size: .6rem;
+      color: #8a5e3b;
+    }
+    .tip {
+      font-size: .7rem;
+      color: #ffffff;
+      text-align: center;
+      padding-bottom: .6rem;
+    }
+
+    .user-info {
+      font-size: .7rem;
+      color: #ffffff;
+      text-align: center;
+      line-height: 1.3;
+      padding-top: .5rem;
+      padding-bottom: .5rem;
+    }
+
+    .banner {
+      background-color: black;
+      color: #ffffff;
+      opacity: .25;
+      width: 92%;
+      height: 5rem;
+      margin: 0 auto;
+      text-align: center;
+      font-size: .75rem;
+      padding-top: .5rem;
+      padding-bottom: .5rem;
+      box-sizing: border-box;
+      margin-bottom: .8rem;
+    }
+    .swiper-box {
+      overflow: hidden;
+      height: 100%;
+    }
+    .swiper {
+      position: relative;
+    }
+    .ani {
+      animation: move 15s linear infinite;
+    }
+    @keyframes move {
+      0% {
+        transform: translateY(0%);
+      }
+      100% {
+        transform: translateY(-100%);
+      }
+    }
+
+    .btn-box {
+      text-align: center;
+      margin-bottom: .7rem;
+    }
+    .btn {
+      display: inline-block;
+      color: #415e0e;
+      width: 46%;
+      height: 2rem;
+      line-height: 1.8rem;
+      text-align: center;
+      background-image: url('/images/shuangdan/btn.png');
+      font-size: .9rem;
+      font-weight: 900;
+    }
+
+    .rules {
+      box-sizing: border-box;
+      width: 92%;
+      margin: 0 auto;
+      background-image: url('/images/shuangdan/rules.png');
+      height: 25rem;
+      color: #992021;
+      padding-left: 1.2rem;
+      padding-right: 1.2rem;
+      padding-top: 1.8rem;
+      position: relative;
+    }
+    .ling {
+      position: absolute;
+      width: 1.5rem;
+      left: .8rem;
+      top: 1.4rem;
+    }
+    .title {
+      font-size: .9rem;
+      text-align: center;
+    }
+    .line {
+      font-size: .75rem;
+      line-height: 1.5;
+      margin-top: .4rem;
+      padding-left: 1rem;
+      position: relative;
+    }
+    .num {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .btns-box {
+      margin-top: .5rem;
+      background-color: rgba(0, 0, 0, .3);
+      line-height: 2.4rem;
+      height: 2.6rem;
+      text-align: center;
+    }
+
+    .ceng {
+      position: fixed;
+      z-index: 10;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, .5);
+      display: none;
+    }
+    .win {
+      position: absolute;
+      top: 50%; left: 0;
+      transform: translateY(-50%);
+      width: 18.75rem;
+      height: 19.5rem;
+      background-image: url('/images/shuangdan/win.png');
+    }
+    .close {
+      width: 1rem; 
+      height: 1rem;
+      position: absolute;
+      right: 2.1rem; top: 3.5rem;
+    }
+    .cnt {
+      position: absolute;
+      width: 80%; height: 8rem;
+      left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+    .cnt-gift-box {
+      width: 3.8rem;
+      height: 3.9rem;
+      background-image: url('/images/shuangdan/gift-bg.png');
+      margin-left: auto; 
+      margin-right: auto; 
+      position: relative;
+      text-align: center;
+      font-size: 0;
+      padding-top: .5rem;
+      box-sizing: border-box;
+      margin-bottom: .2rem;
+    }
+    .cnt-gift-box > img {
+      width: 3rem;
+    }
+    .cnt-gift-box > p {
+      color: #8a5e3b;
+      font-size: .4rem;
+    }
+
+    .jihuo {
+      font-size: .7rem;
+      color: #ffffff;
+      padding-left: 2.4rem;
+      text-align: left;
+    }
+    .lin {
+      padding-left: 2.4rem;
+      font-size: .6rem;
+      color: #ffffff;
+      margin-top: .1rem;
+      text-align: left;
+    }
+    .yellow {
+      color: #fbca56;
+    }
+
+    .submit {
+      width: 6rem;
+      height: 1.65rem;
+      line-height: 1.65rem;
+      text-align: center;
+      background-image: url('/images/shuangdan/btn-r.png');
+      font-size: .75rem;
+      color: #ffffff;
+      display: inline-block;
+      margin-top: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img class="bg" src="/images/shuangdan/bg.png">
+    <img class="bg" src="/images/shuangdan/top-img.png">
+    <div class="timer">活动时间：2017年12月22日0时—2018年1月21日24时</div>
+
+    <div class="gift-box">
+      <div class="gift-item">
+        <div class="gift-bg">
+          <img class="gift" src="/images/shuangdan/gift-01.png">
+          <p class="tit">108元抵现券</p>
+
+          <div class="take"></div>
+
+          <div class="shadow isShow">
+            <div>
+              <p class="want">分享活动页面15次</p>
+            </div>
+          </div>
+        </div>
+        <div class="gift-btm"></div>
+        <p class="tip">已有XX人领取</p>
+      </div>
+
+      <div class="gift-item">
+        <div class="gift-bg">
+          <img class="gift" src="/images/shuangdan/gift-02.png">
+          <p class="tit">小米体脂秤</p>
+
+          <div class="isTake"></div>
+
+          <div class="shadow isShow">
+            <div>
+              <p class="want">累计投资金额</p>
+              <p class="want">≥5万元</p>
+            </div>
+          </div>
+        </div>
+        <div class="gift-btm"></div>
+        <p class="tip">已有XX人领取</p>
+      </div>
+
+      <div class="gift-item">
+        <div class="gift-bg">
+          <img class="gift" src="/images/shuangdan/gift-03.png">
+          <p class="tit">200元京东卡</p>
+
+          <div class="shadow isShow">
+            <div>
+              <p class="want">累计投资金额</p>
+              <p class="want">≥20万元</p>
+            </div>
+          </div>
+        </div>
+        <div class="gift-btm"></div>
+        <p class="tip">已有XX人领取</p>
+      </div>
+
+      <div class="gift-item">
+        <div class="gift-bg">
+          <img class="gift" src="/images/shuangdan/gift-04.png">
+          <p class="tit">松下空气净化器</p>
+
+          <div class="shadow isShow">
+            <div>
+              <p class="want">邀请好友注册10人</p>
+              <p class="want">且累计投资金额</p>
+              <p class="want">≥3万元</p>
+            </div>
+          </div>
+        </div>
+        <div class="gift-btm"></div>
+        <p class="tip">已有XX人领取</p>
+      </div>
+
+      <div class="gift-item">
+        <div class="gift-bg">
+          <img class="gift" src="/images/shuangdan/gift-05.png">
+          <p class="tit">800元京东卡</p>
+
+          <div class="shadow isShow">
+            <div>
+              <p class="want">邀请好友注册20人</p>
+              <p class="want">且累计投资金额</p>
+              <p class="want">≥10万元</p>
+            </div>
+          </div>
+        </div>
+        <div class="gift-btm"></div>
+        <p class="tip">已有XX人领取</p>
+      </div>
+      
+      <div class="gift-item">
+        <div class="gift-bg">
+          <img class="gift" src="/images/shuangdan/ai.png">
+          <p class="tit">敬请期待...</p>
+
+          <div class="shadow isShow">
+             
+          </div>
+        </div>
+        <div class="gift-btm"></div>
+        <p class="tip">已有XX人领取</p>
+      </div>
+    </div>
+
+    <div class="user-info">
+      <p>邀请好友注册人数：0人</p>
+      <p>累计投资额：3456700元</p>
+      <p>分享活动页面次数：234次</p>
+    </div>
+
+    <div class="banner">
+      <div class="swiper-box">
+        <div class="swiper">
+          <p><span>恭喜</span>&nbsp;&nbsp;&nbsp;<span>158XXXX6666</span>&nbsp;&nbsp;<span>成功领取iphoneX!</span></p>
+          <p><span>恭喜</span>&nbsp;&nbsp;&nbsp;<span>158XXXX6666</span>&nbsp;&nbsp;<span>成功领取iphoneX!</span></p>
+          <p><span>恭喜</span>&nbsp;&nbsp;&nbsp;<span>158XXXX6666</span>&nbsp;&nbsp;<span>成功领取iphoneX!</span></p>
+          <p><span>恭喜</span>&nbsp;&nbsp;&nbsp;<span>158XXXX6666</span>&nbsp;&nbsp;<span>成功领取iphoneX!</span></p>
+          <p><span>恭喜</span>&nbsp;&nbsp;&nbsp;<span>158XXXX6666</span>&nbsp;&nbsp;<span>成功领取iphoneX!</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-box">
+      <a class="btn">我的领奖记录</a>
+    </div>
+
+    <div class="rules">
+      <img class="ling" src="data:image/png;base64,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">
+      <p class="title">活动规则</p>
+      <p class="line"><span class="num">1、</span>活动期间每位用户达到奖品领取条件后即可领取该奖品,每个奖品仅可领取一次。</p>
+      <p class="line"><span class="num">2、</span>累计投资金额是活动期间邀请人和被邀请人的投资金额总和，其中购买6个月以下的项目、新手项目和债权项目以及使用抵现券部分的投资金额不计入本次活动数据统计范围内。</p>
+      <p class="line"><span class="num">3、</span>本次活动奖品分为优惠券、虚拟奖品、实物奖品；优惠券将在达到指定条件后自动发放至您爱投资的账户中、虚拟奖品和实物奖品（实物奖品以实际发放为准）将在活动结束后10个工作日内发放（虚拟奖品将以短信的形式发放至您在爱投资预留的手机号码中）。</p>
+      <p class="line"><span class="num">4、</span>对于恶意刷奖的用户，爱投资有权取消其活动资格，所得奖励不予承兑。</p>
+      <p class="line"><span class="num">5、</span>爱投资保留对本次活动解释的权利。</p>
+    </div>
+
+    <div class="btns-box">
+        <a class="btn">我要去邀请</a>
+        <a class="btn">我要去投资</a>
+    </div>
+  </div>
+
+  <div class="ceng">
+    <div class="win">
+      <div class="close"></div>
+      
+      <div class="cnt">
+        <div class="cnt-gift-box">
+          <img src="/images/shuangdan/gift-01.png">
+          <p>108元抵现券</p>
+        </div>
+        
+        <p class="jihuo">激活条件：</p>
+        <p class="lin yellow">活动邀请注册成功人数:（0/5）</p>
+        <p class="lin yellow">6个月以上项目直投金额:（0/50000）</p>
+
+        <a class="submit">立即参与</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var ceng = document.querySelector('.ceng');
+    var close = document.querySelector('.close');
+    var swiper = document.querySelector('.swiper');
+    init(swiper, 'ani');
+    function init(ele, tag) {
+      var arr = ele.children;
+      if (arr.length > 3) {
+        var frag = document.createElement('div');
+        for (var i = 0; i < 4; i++) {
+          frag.appendChild(arr[i].cloneNode(true));
+        };
+        frag.style.position = 'absolute';
+        frag.style.left = '0';
+        frag.style.top = '100%';
+        frag.style.width = '100%';
+        ele.appendChild(frag);
+        ele.classList.add(tag);
+      };
+    };
+    
+    if (ceng) {
+      ceng.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+      }, false);
+    };
+
+    close.addEventListener('click', function() {
+      ceng.style.display = 'none';
+    }, false);
+
+    
+  </script>
+</body>
+</html>

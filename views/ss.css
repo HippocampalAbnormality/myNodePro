@@ -1,0 +1,70 @@
+.banner {
+  width: 100%;
+  display: block;
+}
+.container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 2rem;
+  font-size: .65rem;
+  line-height: 2;
+}
+.tit {
+  color: #1b2b46;
+  margin-top: .6rem;
+  margin-bottom: .4rem;
+}
+.tit:first-child {
+  margin-top: .4rem;
+}
+.lin {
+  color: #666666;
+}
+
+.cnt {
+  padding-top: .8rem;
+  color: #666666;
+  line-height: 1.5;
+}
+.row {
+  display: table;
+}
+.row:first-child {
+  margin-bottom: 2rem;
+}
+.item {
+  display: table-cell;
+  text-align: center;
+  position: relative;
+}
+.item > img {
+  width: 50%;
+}
+.item > .zhi {
+  width: 20%;
+  right: -1rem;
+  top: 2rem;
+  position: absolute;
+}
+.zhi-2 {
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+  top: 6.5rem !important;
+  right: 3rem !important;
+} 
+.zhi-3 {
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+.qcode{
+  display: block;
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+.line {
+  text-align: center;
+}

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>智选计划h5</title>
+  <link rel="stylesheet" href="/stylesheets/common.css">
+  <script src="/javascripts/commen/rem.js"></script>
+  <style>
+    .ft12 {
+      font-size: .6rem;
+    }
+    .red {
+      color: #db605b;
+    }
+    body {
+      background-color: #f3f5f8;
+      -webkit-overflow-scrolling: touch;
+    }
+    .container {
+      position: relative;
+      box-sizing: border-box;
+      padding-top: 8.5rem;
+    }
+    .banner {
+      position: absolute;
+      width: 100%;
+      top: 0; left: 0;
+      z-index: -1;
+    }
+
+    .info-box {
+      position: relative;
+      width: 96%;
+      background-color: #ffffff;
+      padding: .4rem;
+      box-sizing: border-box;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+    }
+    .inner-box {
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      background-color: #f9fbff;
+      padding-top: 2rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-bottom: .6rem;
+    }
+    .num-box, .exp-box {
+      display: flex;
+    }
+    .num-box {
+      font-size: 1.2rem;
+    }
+    .num-box span:first-child, .exp-box span:first-child {
+      width: 70%;
+    } 
+    .num-box span:last-child, .exp-box span:last-child {
+      width: 30%;
+    }
+    .exp-box {
+      color: #666666;
+      font-size: .55rem;
+      margin-top: .3rem;
+      margin-bottom: 1rem;
+    }
+    .exp-box span {
+      display: flex;
+      align-items: center;
+    }
+    .exp-box span img {
+      width: 0.6rem;
+      margin-right: .4rem;
+    }
+    .data {
+      color: #1f2b44;
+    }
+    .btn {
+      color: #ffffff;
+      background-color: #db605b;
+      text-align: center;
+      padding-top: .4rem;
+      padding-bottom: .4rem;
+      display: block;
+      font-size: .7rem;
+      border-radius: 3px;
+    }
+    .info-box .line {
+      font-size: .75rem;
+      color: #1f2b44;
+      text-align: center;
+      margin-top: .5rem;
+    }
+    .info-box .tag {
+      position: absolute;
+      top: .8rem; right: -.3rem;
+    }
+    .info-box .tag img {
+      height: 1.5rem;
+      display: block;
+    }
+    .info-box .tag::before {
+      content: '新手加息 1.5%';
+      position: absolute;
+      top: 15%; left: 15%;
+      color: #db605b;
+      font-size: .6rem;
+      width: max-content;      
+    }
+
+    .swiper {
+      padding: 1.3rem 1rem;
+      background-color: #ffffff;
+      margin-top: 1.2rem;
+    }
+    .seiper-cont {
+      position: relative;
+      overflow-x: scroll;
+      padding-top: 1.6rem;
+      height: 9rem;
+    }
+    .swiper .line {
+      font-size: .65rem;
+      color: #666666;
+      line-height: 1.8;
+    }
+    .swiper .tag {
+      background-color: #899ebf;
+      color: #ffffff;
+      display: inline-block;
+      padding: .15rem .2rem;
+      border-radius: 3px;
+      margin-right: .4rem;
+      line-height: 1;
+    }
+
+    .instr {
+      margin-top: 1.2rem;
+      background-color: #ffffff;
+      padding: 1.3rem 1rem;
+    }
+    .instr .title {
+      color: #1b2b46;
+      font-size: .85rem;
+      text-align: center;
+    }
+    .instr .shi {
+      width: 15rem;
+      display: block;
+      margin-top: .5rem;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: .6rem;
+    }
+    .instr .line {
+      font-size: .65rem;
+      line-height: 1.8;
+      color: #666666;
+    }
+
+    .sec-box {
+      display: flex;
+      margin-top: 2rem;
+    }
+    .sec-inner {
+      width: 50%;
+    }
+    .sec {
+      font-size: .65rem;
+      color: #1f2b44;
+      line-height: 2;
+      text-align: center;
+    }
+    .sec .tit {
+      font-weight: bold;
+    }
+    .sec img {
+      width: 5.25rem;
+    }
+
+    .ques {
+      margin-top: 1.5rem;
+    }
+    .ques .title {
+      color: #1b2b46;
+      font-size: .85rem;
+      text-align: center;
+    }
+    .ques .item {
+      color: #1f2b44;
+      font-size: .65rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      line-height: 1.8;
+    }
+    .ques .q {
+      position: relative;
+      font-weight: bold;
+      margin-bottom: .6rem;
+      padding-left: 1rem;
+    }
+    .ques .a {
+      margin-bottom: 1.3rem
+    }
+    .ques .tag {
+      position: absolute;
+      top: 50%; left: 0;
+      transform: translateY(-50%);
+      width: .85rem;
+      height: .85rem;
+      background-image: url('/images/zhixuanh5/xu.png');
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+    }
+    .ques i {
+      font-size: .55rem;
+      color: #ffffff;
+      position: absolute;
+      top: 0%; left: 20%;
+      line-height: 1;
+    }
+    .invest {
+      font-size: .9rem;
+      border-radius: 0;
+      padding-top: .8rem;
+      padding-bottom: .8rem;
+    }
+
+    .swiper-box {
+      /* position: absolute;
+      top: 1.6rem; left: 0; */
+      font-size: 0;
+      text-align: center;
+      /* transition: transform 1s; */
+    }
+    .swiper-box .item {
+      display: inline-block;
+      width: 3.65rem;
+      font-size: .5rem;
+      height: 8rem;
+      background-color: #f8fbff;
+      padding-bottom: 2rem;
+      box-sizing: border-box;
+      position: relative;
+      margin-right: .1rem;
+    }
+    .swiper-box .act {
+      background-color: #e7edf6;
+    }
+    .swiper-box .act:before {
+      content: '锁定期';
+      color: #6b8ab3;
+      position: absolute;
+      top: .3rem; left: 50%;
+      transform: translateX(-50%);
+    }
+    .swiper-box .span {
+      position: absolute;
+      bottom: 105%;
+      width: 100%;
+      left: 0;
+      color: #666666;
+    }
+    .swiper-box .i {
+      color: #db605b;
+      font-size: 12px;
+    }
+    .swiper-box .item:last-child {
+      margin-right: 0;
+    }
+    .swiper-box .tags {
+      display: block;
+      width: 2rem;
+      height: 1rem;
+      background-image: url('/images/zhixuanh5/yellow-gai.png');
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+    }
+    .swiper-box .tags:first-child {
+      background-image: url('/images/zhixuanh5/red-gai.png');
+    }
+    .swiper-box .tags:last-child {
+      background-image: url('/images/zhixuanh5/white-gai.png');
+    }
+    .swiper .box {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+
+    .next, .pre {
+      position: absolute;
+      top: 45%;
+      right: 0;
+      width: .7rem;
+      height: 1.3rem;
+      background-image: url('/images/zhixuanh5/next.png');
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+      z-index: 10;;
+    }
+    .pre {
+      right: auto;
+      left: 0;
+      transform: rotate(180deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img class="banner" src="/images/zhixuanh5/banner.png">
+    
+    <div class="info-box">
+      <div class="tag">
+        <img src="/images/zhixuanh5/ban.png">
+      </div>
+
+      <div class="inner-box">
+        <p class="num-box">
+          <span class="red">5.50<i class="ft12">% ~ </i>13.00<i class="ft12">%</i></span>
+          <span class="data">7<i class="ft12"> 天</i></span>
+        </p>
+
+        <p class="exp-box">
+          <span><img src="/images/zhixuanh5/shouyi.png">年化收益率</span>
+          <span><img src="/images/zhixuanh5/suoding.png">锁定期</span>
+        </p>
+
+        <a class="btn">立即投资</a>
+
+        <p class="line">可投金额：888,888,888.00 元</p>
+      </div>
+    </div>
+
+    <div class="swiper">
+      <div class="seiper-cont">
+        <!-- <span class="next"></span>
+        <span class="pre"></span> -->
+        <div class="swiper-box">
+        </div>
+      </div>
+
+      <p class="line"><span class="tag">示例</span>起息后满 7 天可以年化收益 5.5% 退出，满 1 个月可以年化 6.5% 退出…以此类推，满 24 个月及以上可年化 13% 退出。</p>
+    </div>
+
+    <div class="instr">
+      <p class="title">了解智选计划</p>
+      <img class="shi" src="/images/zhixuanh5/shi.png">
+      <p class="line">智选计划产品是爱投资推出的一款服务于供应链金融、汽车金融等多元金融场景下小微企业融资需求的新产品类型这款产品在资产端深耕小额资产，通过把风控过程深入业务流程，通过大数据方案实现多元化风控数据的自动收集和处理，筛选出优质的借款企业，形成满足投资者不同金额、不同期限的投资需求的产品。</p>
+    
+      <div class="sec-box">
+        <div class="sec-inner">
+          <div class="sec">
+            <img src="/images/zhixuanh5/01.png">
+            <p class="tit">智能分散</p>
+            <p class="lin">智能分散撮合系统</p>
+            <p class="lin">分散投资风险</p>
+          </div>
+          <div class="sec">
+            <img src="/images/zhixuanh5/03.png">
+            <p class="tit">本息保障</p>
+            <p class="lin">多元化保障方案</p>
+            <p class="lin">本息安全保障</p>
+          </div>
+        </div>
+        <div class="sec-inner">
+          <div class="sec">
+            <img src="/images/zhixuanh5/02.png">
+            <p class="tit">收益递增</p>
+            <p class="lin">收益率逐月递增</p>
+            <p class="lin">收益节节高</p>
+          </div>
+          <div class="sec">
+            <img src="/images/zhixuanh5/04.png">
+            <p class="tit">7 天可退</p>
+            <p class="lin">计息后 7 天可退出</p>
+            <p class="lin">灵活方便高效</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ques">
+      <p class="title">常见问题</p>
+      <div class="item">
+        <p class="q"><span class="tag"><i>1</i></span>智选计划是什么？</p>
+        <p class="a">智选计划是爱投资推出的一款服务于供应链金融、汽车金融等多元金融场景下小微企业融资需求的新产品类型。这款产品在资产端深耕小额资产，通过把风控过程深入业务流程，通过大数据方案实现多元化风控数据的自动收集和处理，筛选出优质的借款企业，形成满足投资者不同金额、不同期限的投资需求的产品。</p>
+      </div>
+
+      <div class="item">
+        <p class="q"><span class="tag"><i>2</i></span>智选计划投资的都是什么？</p>
+        <p class="a">智选计划的投资标的均是爱投资精选的优质资产，如基于行业深度知识微型供应链优质资产等，爱投资结合资产实际情况构建专注于供应链的风控模型，综合分析借款人的借款申请，把申请通过的借款信息组合到线上项目中，方便用户轻松投资，投资门槛100元。</p>
+      </div>
+
+      <div class="item">
+        <p class="q"><span class="tag"><i>3</i></span>智选计划如何保障用户投资本息的安全？</p>
+        <p class="a">智选计划由智选服务保障计划提供保障，“智选服务保障计划”是由安投融（北京）网络科技有限公司（下称“爱投资”）旗下通过www.itouzi.com及APP的网络借贷信息中介服务平台设立的、为更好的保护全体投资人的权益的服务保障计划。该计划由爱投资在资金存管银行新网银行设立一个资金专用账户（智选服务保障计划账户），当受保障借款的投资人投资的受保障借款出现逾期时，爱投资将直接使用账户内的保障金向受保障借款的投资人偿付此笔借款，弥补投资人的损失。</p>
+      </div>
+
+      <div class="item">
+        <p class="q"><span class="tag"><i>4</i></span>智选计划是否有费用？</p>
+        <p class="a">智选计划没有认购费，也无管理费，智选计划退出收取一定费用，收费情况如下：<br>起息30天内（含）退出收费1%<br>起息30（不含）到180天（含）退出收费0.5%<br>起息180天（不含）以上退出不收费</p>
+      </div>
+    </div>
+
+    <a class="btn invest">立即投资</a>
+  </div>
+
+  <script src="/javascripts/commen/zepto.min.js"></script>
+  <script>
+    (function(globel) {
+      var arr = [
+        [3,'5.5%','7天',true],
+        [3,'5.5%','15天'],
+        [4,'6%','1个月'],
+        [5,'6.5%','1.5个月'],
+        [6,'7%','2个月'],
+        [7,'7.5%','3个月'],
+        [8,'8%','4个月'],
+        [9,'8.5%','5个月'],
+        [10,'9%','6个月'],
+        [11,'9.5%','8个月'],
+        [12,'10%','10个月'],
+        [13,'11%','12个月'],
+        [13,'12%','24个月及以上']
+      ];
+
+      function Test(arr, target) {
+        this.arr = arr || [];
+        this.target = target;
+        this.concat();
+      };
+
+      Test.prototype.concat = function() {
+        var length = this.arr.length,
+            div,
+            span,
+            box = document.createDocumentFragment();
+        for (var j = 1; j <= length; j++) {
+          div = document.createElement('div');
+          span = document.createElement('span');
+          span.className = 'span';
+          span.innerHTML = this.arr[j-1][2];
+          div.appendChild(span);
+          div.appendChild( this.create(this.arr[j-1]) );
+          div.className = 'item';
+          if (this.arr[j-1][3]) {
+            div.className = 'item act';
+          };
+          box.appendChild(div);
+        };
+        this.target.style.width = length * (3.65 + .1) + 'rem';
+        this.target.appendChild(box);
+      };
+
+      Test.prototype.create = function(arr) {
+        var span, 
+            html = '',
+            div = document.createElement('div')
+            nums = arr[0],
+            cnt = arr[1],
+            time = arr[2];
+        div.className = 'box';
+        for (var i = 1; i <= nums; i++) {
+          span = document.createElement('span');
+          span = '<span class="tags" style="position: relative; z-index:' + i + '; bottom: -' + i*.7 + 'rem"></span>';
+          if (i===nums) {
+            span = '<span class="tags" style="position: relative; z-index:' + i + '; bottom: -' + i*.7 + 'rem"><i class="i" style="position: relative; bottom: 100%;">' + cnt + '</i></span>';
+          };
+          html = span + html; 
+        };
+        div.innerHTML = html;
+        return div;
+      };
+
+      var obj = new Test(arr, document.querySelector('.swiper-box'));
+
+
+
+      // var $cont = $('.seiper-cont'),
+      //     $contW = $cont.width();
+      //     $box = $('.swiper-box'),
+      //     $items = $box.find('.item'),
+      //     $w = $cont.width()/5;
+      // $items.width($w-2).css('margin-right', 2);
+      // $box.width($w*arr.length);
+
+      
+      // var time = 1;
+      // $cont.on('click', '.next', function() {
+      //   if (time>=3) {
+      //     return;
+      //   };
+      //   $box.css('transform', 'translate(-' + $contW*time++ + 'px)');
+      // });
+      // $cont.on('click', '.pre', function() {
+      //   if (time<=1) {
+      //     return;
+      //   };
+      //   time--;
+      //   $box.css('transform', 'translate(' + $contW*time + 'px)');
+      // });
+    })(window);
+  </script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/stylesheets/common.css">
+  <link rel="stylesheet" href="/stylesheets/landingPage/newPage.css">
+  <script src="/javascripts/commen/rem.js"></script>
+  <script>
+    var itz = itz || {};
+  </script>
+</head>
+<body>
+  <img class="banner" src="/images/landingPage/banner.png">
+
+  <div class="zhuce">
+    <div class="register">
+      <form id="regForm">
+        <label class="item item-1">
+          <input class="tel err-phone" maxlength="11" type="tel" name="phone" placeholder="请输入手机号码">
+        </label>
+        
+        <label class="item item-2">
+          <input class="password err-password" type="password" name="password" placeholder="请设置登录密码">
+          <span id="viewPwd1" class="look"></span>
+        </label>
+
+        <div id="valicode-li" class="item item-4" style="display: none;">
+          <input class="code code1 err-valicode" type="text" name="valicode" placeholder="请输入图形验证码" style="width: 188.844px;">
+          <span class="vcode-wrapper">
+            <img src="/apiService/captcha/reg?t=">
+          </span>
+        </div>
+        
+        <div class="item item-3">
+          <input class="code err-phoneValicode" type="number" name="phoneValicode" placeholder="请输入验证码">
+          <button id="get_code1" class="send">获取验证码</button>
+        </div>
+
+        <p class="err-tip">
+          <span id="reg_error" class="box"><span class="tip">错误提示位置</span></span>  
+        </p>
+
+        <button id="smbt1" class="redpack">立即注册 领取 688 元礼包</button>
+        <p class="had"><a class="login" href="/newuser/index/loginWap">已有账号，请<span class="login-tip">&nbsp;&nbsp;登录</span></a></p>
+
+        <input type="hidden" name="reg_agreement" value="on">
+      </form>
+    </div>
+  </div>
+
+  <img class="redPack" src="/images/landingPage/redPack.png">
+
+  <div class="show">
+    <img src="/images/landingPage/redBook.png">
+    <div class="cnt">丰富的投资产品</div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-cnt">
+      <span>6.5%</span>
+      <span class="yuan"></span>
+      <span>4.0%</span>
+      <p class="line">历史年化收益率</p>
+    </div>
+    <a class="btn">立即投资</a>
+    <img class="img" src="/images/landingPage/xinshou.png">
+  </div>
+
+  <div class="sec">
+    <div class="sec-cnt">
+      <span>10.0%</span>
+      <span class="lang"></span>
+      <span>13.0%</span>
+      <p class="line">历史年化收益率</p>
+    </div>
+    <a class="btn">立即投资</a>
+    <img class="img" src="/images/landingPage/shengxin.png">
+  </div>
+
+  <div class="show">
+    <img src="/images/landingPage/redBook.png">
+    <div class="cnt">爱投资值得托付</div>
+  </div>
+
+  <div class="adv">
+    <div class="item">
+      <img class="img" src="/images/landingPage/safe.png">
+      <div class="cnt">
+        <p class="head">安心投资</p>
+        <p>历史本息 100% 完美兑付</p>
+      </div>
+    </div>
+    <div class="item">
+      <img class="img" src="/images/landingPage/bank.png">
+      <div class="cnt">
+        <p class="head">银行存管</p>
+        <p>银行资金存管正式上线</p>
+      </div>
+    </div>
+    <div class="item">
+      <img class="img" src="/images/landingPage/advantage.png">
+      <div class="cnt">
+        <p class="head">品牌优势</p>
+        <p>中国互联网金融协会首批会员单位</p>
+      </div>
+    </div>
+    <div class="item">
+      <img class="img" src="/images/landingPage/benefit.png">
+      <div class="cnt">
+        <p class="head">稳健收益</p>
+        <p>投资收益更灵活 预期年化收益 13%</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="take"></div>
+
+  <p class="tip">理财有风险 投资需谨慎</p>
+  
+  <script src="/javascripts/commen/jquery.1.9.1.js"></script>
+  <script src="/javascripts/commen/newreg.js"></script>
+  <!-- <script src="/javascripts/commen/sem2script.js"></script> -->
+  <script type="text/javascript">
+      var registerObj = new itz.wap.register({
+        form : '#regForm',
+        showClean : true,
+        otherErrorClass : '#reg_error',
+        eyeClass : '#viewPwd1',
+        eyeIcon : '#viewPwd1',
+        showPwdClass : 'true',
+        getSmsBtn : '#get_code1',
+        validCodeWrapper : '#valicode-li',
+        validCodeReflash : '.vcode-wrapper',
+        regBtn : '#smbt1',
+        changeBorder: 'err'
+      });
+  </script>
+</body>
+</html>

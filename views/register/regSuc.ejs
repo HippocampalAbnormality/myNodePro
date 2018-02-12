@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title><%=title%></title>
+  <script src="/javascripts/commen/rem.js"></script>
+  <style>
+    body, p {
+      margin: 0;
+    }
+    body {
+      padding-bottom: .8rem;
+    }
+    .show-ban {
+      background-color: #EF5A50;
+      padding-top: 2rem;
+    }
+    .ani-box {
+      width: 5rem;
+      height: 5rem;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      font-size: 0;
+    }
+    .ani-box img {
+      width: 100%;
+    }
+    .outer, .inner, .finish {
+      position: absolute;
+      top: 0; left: 0;
+    }
+    .finish {
+      width: 0;
+      height: 100%;
+      overflow: hidden;
+      transition: width 1s .4s linear;
+    }
+    .finish img {
+      width: auto;
+      height: 100%;
+    }
+    .animation .outer {
+      transform-origin: 48% 48%;
+      animation: rotate .6s linear 1;
+      animation-fill-mode: forwards;
+    }
+    .animation .finish {
+      width: 100%;
+    }
+
+    .show-word, .show-line {
+      color: #ffffff;
+      font-size: 1rem;
+      line-height: 1;
+      text-align: center;
+      padding-top: .8rem;
+      padding-bottom: .8rem;
+    }
+    .show-line {
+      font-size: .7rem;
+      padding-top: .4rem;
+      padding-bottom: 1.2rem;
+    }
+
+    .fare {
+      padding-top: 1.2rem;
+      display: flex;
+    }
+    .item {
+      flex-grow: 0;
+      flex-shrink: 0;
+      width: 33.3333%;
+      text-align: center;
+      font-size: 0;
+    }
+    .img-box {
+      position: relative;
+      display: inline-block;
+    }
+    .img-box > img {
+      width: 3.8rem;
+    }
+
+    .next {
+      position: absolute;
+      top: 50%; left: 108%;
+      transform: translateY(-50%);
+      width: 1.85rem;
+      height: .3rem;
+      background-image: url('/images/register/next-red.png');
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
+    .gray {
+      background-image: url('/images/register/next-gray.png');
+    }
+
+    .word {
+      display: inline-block;
+      width: 100%;
+      font-size: .65rem;
+      color: #333333;
+    }
+    .red {
+      color: #EF5A50;
+    }
+
+    .word-box {
+      display: flex;
+      margin-top: .3rem;
+    }
+    .word-line {
+      align-items: center;
+      text-align: center;
+      flex-grow: 0;
+      flex-shrink: 0;
+      width: 33.3333%;
+      line-height: 1.5;
+    }
+
+    .btn {
+      display: block;
+      text-align: center;
+      margin-top: 1rem;
+      font-size: .8rem;
+      padding-top: .45rem;
+      padding-bottom: .45rem;
+      margin-left: .75rem;
+      margin-right: .75rem;
+      border: 1px solid #EF5A50;
+      color: #EF5A50;
+      border-radius: 4px;
+    }
+    .btn.red {
+      color: #ffffff;
+      background-color: #EF5A50;
+    }
+    .btn.red:active {
+      background-color: #db3227;
+    }
+
+    .ercode {
+      width: 4.75rem;
+      height: 4.75rem;
+      box-shadow: 0 0 8px rgba(0,0,0,.15);
+      margin-top: 1rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .ercode > img {
+      width: 100%;
+    }
+    .tip {
+      font-size: .7rem;
+      color: #333333;
+      margin-top: .5rem;
+      text-align: center;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0); }
+      50% { transform: rotate(180deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .tuijian {
+      font-size: .75rem;
+      color: #333333;
+      text-align: center;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+    .project {
+      margin-left: .75rem;
+      margin-right: .75rem;
+      color: #333333;
+      border-radius: 4px;
+      box-shadow: 0 0 8px rgba(239,90,80, .15);
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    .pro-tit {
+      font-size: .7rem;
+      padding-top: 1rem;
+      /* padding-left: 1rem; */
+    }
+    .pro-info {
+      padding-top: .4rem;
+      padding-bottom: .6rem;
+      display: flex;
+    }
+    .pro-limit {
+      padding-top: .5rem;
+      padding-bottom: .5rem;
+      /* padding-left: 1rem; */
+      font-size: .65rem;
+      border-top: 1px solid #eeeeee;
+    }
+    .pro-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 0;
+      flex-shrink: 0;
+      width: 33.3333%;
+      text-align: center;
+    }
+    .pro-item:first-child {
+      font-size: 1.2rem;
+    }
+    .pro-item:nth-child(2) {
+      font-size: 1.3rem;
+    }
+    .pro-item span {
+      font-size: .7rem;
+      color: #151515;
+    }
+    .pro-item a {
+      display: inline-block;
+      padding: .2rem .8rem;
+      border-radius: 3px;
+      background-color: #EF5A50;
+      color: #ffffff;
+      font-size: .75rem;
+    }
+    .pro-item a:active {
+      background-color: #db3227;
+    }
+  </style>
+</head>
+<body>
+  <div class="show-ban">
+    <div class="ani-box">
+      <img class="outer" src="/images/register/ani-outer.png">
+      <img class="inner" src="/images/register/ani-inner.png">
+      <div class="finish">
+        <img src="/images/register/ani-finish.png">
+      </div>
+      <img class="bg" src="/images/register/ani-bg.png">
+    </div>
+    <p class="show-word">注册成功</p>
+    <p class="show-line">招商银行（尾号1234）成功充值1000元</p>
+  </div>
+
+  <div class="fare">
+    <div class="item">
+      <div class="img-box">
+        <img src="/images/register/01.png">
+        <span class="next"></span>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="img-box">
+        <img src="/images/register/02.png">
+        <span class="next gray"></span>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="img-box">
+        <img src="/images/register/03.png">
+      </div>
+    </div>
+  </div>
+
+  <div class="word-box">
+    <div class="word-line">
+      <span class="word"><span class="red">188元</span>抵现券</span>
+    </div>
+    <div class="word-line">
+      <span class="word"><span class="red">500元</span>抵现券</span>
+    </div>
+    <div class="word-line">
+      <span class="word">新手加息项目<br />首投抽奖100%中奖</span>
+    </div>
+  </div>
+
+  <a class="btn">去首页</a>
+  <a class="btn red">开户领500元抵现券</a>
+
+  <div class="ercode">
+    <img src="/images/register/ercode.jpg">
+  </div>
+  <p class="tip">关注爱投资订阅号 获得更多资讯</p>
+
+  <p class="tuijian">为您推荐以下项目</p>
+  <div class="project">
+    <p class="pro-tit">省心计划</p>
+    <div class="pro-info">
+      <div class="pro-item red">12.00%</div>
+      <div class="pro-item">
+        <p>12<span>个月</span></p>
+      </div>
+      <div class="pro-item"><a >投资</a></div>
+    </div>
+    <p class="pro-limit">可投金额<span class="red">1,000</span>元</p>
+  </div>
+  
+  <script src="/javascripts/commen/vue.min.js"></script>
+  <script>
+    window.onload = function() {
+      document.querySelector('.ani-box').classList.add('animation');
+    };
+  </script>
+</body>
+</html>

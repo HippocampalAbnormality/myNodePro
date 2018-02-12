@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="/stylesheets/common.css">
+  <style>
+    body {
+      background-color: #f8f8f8;
+    }
+    .container {
+      color: #1b2b46;      
+    }
+    .sec-ban {
+      position: relative;
+      margin-top: -100px;
+      margin-bottom: 50px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 1000px;
+      padding: 10px;
+      box-sizing: border-box;
+      background-color: #ffffff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, .3);
+    }
+    .sec-ban .img {
+      display: block;
+    }
+    .sec-ban .ban-cnt {
+      position: absolute;
+      box-sizing: border-box;
+      padding-top: 50px;
+      width: 980px;
+      height: 180px;
+      top: 10px;
+      left: 10px;
+      font-size: 0;
+      color: #1b2b46;
+    }
+    .sec-ban .sec01, .sec-ban .sec02 {
+      font-size: 16px;
+      padding-left: 40px;
+    }
+    .sec-ban .sec01 {
+      margin-bottom: 6px;
+    }
+    .shouyi, .suoding, .ketou {
+      display: inline-block;
+      position: relative;
+      box-sizing: border-box;
+    }
+    .sec02 .shouyi, .sec02 .suoding, .sec02 .ketou {
+      padding-left: 30px;
+    }
+    .shouyi {
+      width: 29%;
+    }
+    .suoding {
+      width: 14%;
+    }
+    .ketou {
+      width: 29%;
+    }
+    .sec01 .shouyi {
+      font-size: 36px;
+      color: #ee5555;
+    }
+    .sec01 .shouyi span {
+      font-size: 20px;
+    }
+    .sec01 .suoding {
+      font-size: 30px;
+    }
+    .sec01 .suoding span {
+      font-size: 16px;
+    }
+    .sec01 .ketou {
+      font-size: 30px;
+    }
+    .sec01 .ketou span {
+      font-size: 16px;
+    }
+    .sec02 {
+      font-size: 14px !important;
+    }
+    .sec02 span {
+      position: absolute;
+      left: 0; top: 50%;
+      margin-top: -8.5px;
+      width: 19px;
+      height: 17px;
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+    }
+    .sec02 .shouyi span {
+      background-image: url('/images/pcjihua/icon-01.png');
+    }
+    .sec02 .suoding span {
+      background-image: url('/images/pcjihua/icon-02.png');
+    }
+    .sec02 .ketou span {
+      background-image: url('/images/pcjihua/icon-03.png');
+    }
+    .sec-ban .btn {
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      font-size: 16px;
+      width: 170px;
+      color: #ffffff;
+      line-height: 1;
+      border-radius: 2px;
+      text-align: center;
+      background-color: #ee5555;
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+    .sec-ban .btn:active {
+      opacity: .8;
+    }
+    .sec-top {
+      min-width: 1000px;
+      height: 450px;
+      margin: 0 auto;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 2560px auto;
+      background-image: url('/images/pcjihua/banner1.png');
+    }
+    .img {
+      overflow: hidden;
+      display: block;
+    }
+
+    .sec-banner {
+      background-color: burlywood;
+      width: 1000px;
+      height: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .sec-adv {
+      margin-top: 100px;
+      background-color: #ffffff;
+    }
+    .sec-adv .bar {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      top: -14px;
+    }
+    .sec-adv .liaojie {
+      font-size: 16px;
+      text-align: center;
+      color: #1b2b46;
+      margin-bottom: 30px;
+      line-height: 1.8;
+    }
+    .adv-box {
+      width: 1000px;
+      margin: 0 auto;
+      font-size: 0;
+      padding-bottom: 36px;
+    }
+    .adv-box .item {
+      display: inline-block;
+      width: 250px;
+      text-align: center;
+    }
+    .adv-box .tit {
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 1;
+      padding-top: 16px;
+      padding-bottom: 16px;
+      position: relative;
+    }
+    .adv-box .tit:before {
+      content: '';
+      width: 20px;
+      height: 2px;
+      background-color: #bed4f4;
+      position: absolute;
+      bottom: 5px;
+      left: 50%;
+      margin-left: -10px;
+    }
+    .adv-box .lin {
+      line-height: 1.6;
+      font-size: 14px;
+    }
+    .adv-box .title, .sec-que .title {
+      font-size: 26px;
+      text-align: center;
+      line-height: 1;
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+    .sec-que {
+      position: relative;
+      padding-bottom: 130px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.8;
+    }
+    .sec-que .item {
+      margin: 0 auto;
+      width: 1000px;
+      font-size: 16px;
+      margin-bottom: 24px;
+    }
+    .sec-que .tit {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .sec-que .tit {
+      padding-left: 40px;
+      position: relative;
+    }
+    .sec-que .lin {
+      padding-left: 40px;
+    }
+    .sec-que .tag {
+      position: absolute;
+      top: 50%; left: 0;
+      margin-top: -14px;
+      width: 28px; height: 28px;
+      background-image: url('/images/pcjihua/tan.png');
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+      color: #ffffff;
+      font-size: 16px;
+    }
+    .sec-que .tag i {
+      position: absolute;
+      line-height: 1;
+      top: 15%;
+      left: 23%;
+    }
+
+    .sec-que .btn-box {
+      position: absolute;
+      bottom: 0; left: 0;
+      background-color: #8791a0;
+      height: 100px; width: 100%;
+    }
+    .sec-que .btn {
+      text-align: center;
+      position: absolute;
+      left: 50%; top: 50%;
+      margin-top: -28px;
+      margin-left: -115px;
+      background-color: #ee5555;
+      color: #ffffff;
+      font-size: 24px;
+      line-height: 1;
+      padding-top: 16px;
+      padding-bottom: 16px;
+      width: 230px;
+      border-radius: 4px;
+    }
+    .sec-que .btn:active {
+      opacity: .8;
+    }
+
+    .swiper {
+      width: 1000px;
+      box-sizing: border-box;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 1.3rem 1rem;
+      background-color: #ffffff;
+      margin-top: 1.2rem;
+    }
+    .seiper-cont {
+      position: relative;
+      overflow-x: scroll;
+      padding-top: 26px;
+    }
+    .seiper-cont::-webkit-scrollbar {
+      height: 8px;
+      width: auto;
+    }
+    .seiper-cont::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      background-color: #6b8ab3;
+    }
+    .seiper-cont::-webkit-scrollbar-track {
+      background-color: #e7edf6;
+    }
+
+    .seiper-cont::-ms-scrollbar {
+      height: 8px;
+      width: auto;
+    }
+    .seiper-cont::-ms-scrollbar-thumb {
+      border-radius: 4px;
+      background-color: #6b8ab3;
+    }
+    .seiper-cont::-ms-scrollbar-track {
+      background-color: #e7edf6;
+    }
+    .swiper .line {
+      font-size: .65rem;
+      color: #666666;
+      line-height: 1.8;
+    }
+    .swiper .tag {
+      background-color: #899ebf;
+      color: #ffffff;
+      display: inline-block;
+      padding: .15rem .2rem;
+      border-radius: 3px;
+      margin-right: .4rem;
+      line-height: 1;
+    }
+    .swiper-box {
+      /* position: absolute;
+      top: 1.6rem; left: 0; */
+      font-size: 0;
+      text-align: center;
+      /* transition: transform 1s; */
+    }
+    .swiper-box .item {
+      display: inline-block;
+      width: 96px;
+      font-size: 12px;
+      height: 230px;
+      background-color: #f8fbff;
+      padding-bottom: 2rem;
+      box-sizing: border-box;
+      position: relative;
+      margin-right: .1rem;
+    }
+    .swiper-box .act {
+      background-color: #e7edf6;
+    }
+    .swiper-box .act:before {
+      content: '锁定期';
+      color: #6b8ab3;
+      position: absolute;
+      width: 100%;
+      top: 14px; left: 0;
+    }
+    .swiper-box .span {
+      position: absolute;
+      bottom: 105%;
+      width: 100%;
+      left: 0;
+      color: #666666;
+    }
+    .swiper-box .i {
+      color: #db605b;
+      font-size: 16px;
+    }
+    .swiper-box .item:last-child {
+      margin-right: 0;
+    }
+    .swiper-box .tags {
+      display: block;
+      width: 50px;
+      height: 25px;
+      background-image: url('/images/zhixuanh5/yellow-gai.png');
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+    }
+    .swiper-box .tags:first-child {
+      background-image: url('/images/zhixuanh5/red-gai.png');
+    }
+    .swiper-box .tags:last-child {
+      background-image: url('/images/zhixuanh5/white-gai.png');
+    }
+    .swiper .box {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      margin-left: -25px;
+    }
+    .shili {
+      text-align: center;
+      color: #666666;
+      font-size: 14px;
+      line-height: 2;
+      background-color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sec-top"></div>
+
+    <div class="sec-ban">
+      <img class="img" src="/images/pcjihua/banner2.png">
+
+      <div class="ban-cnt">
+        <div class="sec01">
+          <p class="shouyi">5.50<span>% ~ </span>13.00<span>%</span></p>
+          <p class="suoding">7 <span>天</span></p>
+          <p class="ketou">888,888,888.00 <span>元</span></p>
+        </div>
+        <div class="sec02">
+          <p class="shouyi">年化收益率<span></span></p>
+          <p class="suoding">锁定期<span></span></p>
+          <p class="ketou">可投金额<span></span></p>
+        </div>
+        
+        <a class="btn">立即投资</a>
+      </div>
+    </div>
+    
+    <div class="swiper">
+      <div class="seiper-cont">
+        <div class="swiper-box">
+        </div>
+      </div>
+    </div>
+    <p class="shili">示例：起息后满 7 天可以年化收益 5.5% 退出，满 1 个月可以年化 6.5% 退出…以此类推，满 24 个月及以上可年化 13% 退出。</p>
+
+    <div class="sec-adv">
+      <div class="adv-box"> 
+        <p class="title">了解智选计划</p>
+        <img class="bar" src="/images/pcjihua/bar.png">
+
+        <p class="liaojie">智选计划产品是爱投资推出的一款服务于供应链金融、汽车金融等多元金融场景下小微企业融资需求的新产品类型。这款产品在资产端深耕小额资产，通过把风控过程深入业务流程，通过大数据方案实现多元化风控数据的自动收集和处理，筛选出优质的借款企业，形成满足投资者不同金额、不同期限的投资需求的产品。</p>
+
+        <div class="item">
+          <img src="/images/pcjihua/01.png">
+          <p class="tit">智能分散</p>
+          <p class="lin">智能分散撮合系统</p>
+          <p class="lin">分散投资风险</p>
+        </div>
+         
+        <div class="item">
+          <img src="/images/pcjihua/02.png">
+          <p class="tit">收益递增</p>
+          <p class="lin">收益率逐月递增</p>
+          <p class="lin">收益节节高</p>
+        </div>
+         
+        <div class="item">
+          <img src="/images/pcjihua/03.png">
+          <p class="tit">本息保障</p>
+          <p class="lin">多元化保障方案</p>
+          <p class="lin">本息安全保障</p>
+        </div>
+         
+        <div class="item">
+          <img src="/images/pcjihua/04.png">
+          <p class="tit">7 天可退</p>
+          <p class="lin">计息后 7 天可退出</p>
+          <p class="lin">灵活方便高效</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec-que">
+      <p class="title">常见问题</p>
+
+      <div class="item">
+        <p class="tit">
+          智选计划是什么？
+          <span class="tag"><i>1</i></span>
+        </p>
+        <p class="lin">智选计划是爱投资推出的一款服务于供应链金融、汽车金融等多元金融场景下小微企业融资需求的新产品类型。这款产品在资产端深耕小额资产通过把风控过程深入业务流程，通过大数据方案实现多元化风控数据的自动收集和处理，筛选出优质的借款企业，形成满足投资者不同金额、不同期限的投资需求的产品。</p>
+      </div>
+       
+      <div class="item">
+        <p class="tit">
+          智选计划投资的是什么？
+          <span class="tag"><i>2</i></span>
+        </p>
+        <p class="lin">智选计划的投资标的均是爱投资精选的优质资产，如基于行业深度知识微型供应链优质资产等，爱投资结合资产实际情况构建专注于供应链的风控模型，综合分析借款人的借款申请，把申请通过的借款信息组合到线上项目中，方便用户轻松投资，投资门槛100元。</p>
+      </div>
+       
+      <div class="item">
+        <p class="tit">
+          <span class="tag"><i>3</i></span>
+          智选计划如何保障用户投资本息的安全？
+        </p>
+        <p class="lin">智选计划由智选服务保障计划提供保障，“智选服务保障计划”是由安投融（北京）网络科技有限公司（下称“爱投资”）旗下通过www.itouzi.com 及 APP 的网络借贷信息中介服务平台设立的、为更好的保护全体投资人的权益的服务保障计划。该计划由爱投资在资金存管银行新网银行设立一个资金专用账户（智选服务保障计划账户），当受保障借款的投资人投资的受保障借款出现逾期时，爱投资将直接使用账户内的保障金向受保障借款的投资人偿付此笔借款，弥补投资人的损失。</p>
+      </div>
+       
+      <div class="item">
+        <p class="tit">
+          <span class="tag"><i>4</i></span>
+          智选计划是否有费用？
+        </p>
+        <p class="lin">智选计划没有认购费，也无管理费，智选计划退出收取一定费用，收费情况如下：</p>
+        <p class="lin">起息 30 天内（含）退出收费 1%</p>
+        <p class="lin">起息 30 （不含）到 180 天（含）退出收费 0.5%</p>
+        <p class="lin">起息 180 天（不含）以上退出不收费</p>
+      </div>
+
+      <div class="btn-box">
+        <a class="btn">立即投资</a>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    (function(globel) {
+      var arr = [
+        [3,'5.5%','7天',true],
+        [3,'5.5%','15天'],
+        [4,'6%','1个月'],
+        [5,'6.5%','1.5个月'],
+        [6,'7%','2个月'],
+        [7,'7.5%','3个月'],
+        [8,'8%','4个月'],
+        [9,'8.5%','5个月'],
+        [10,'9%','6个月'],
+        [11,'9.5%','8个月'],
+        [12,'10%','10个月'],
+        [13,'11%','12个月'],
+        [13,'12%','24个月及以上']
+      ];
+
+      function Test(arr, target) {
+        this.arr = arr || [];
+        this.target = target;
+        this.concat();
+      };
+
+      Test.prototype.concat = function() {
+        var length = this.arr.length,
+            div,
+            span,
+            box = document.createDocumentFragment();
+        for (var j = 1; j <= length; j++) {
+          div = document.createElement('div');
+          span = document.createElement('span');
+          span.className = 'span';
+          span.innerHTML = this.arr[j-1][2];
+          div.appendChild(span);
+          div.appendChild( this.create(this.arr[j-1]) );
+          div.className = 'item';
+          if (this.arr[j-1][3]) {
+            div.className = 'item act';
+          };
+          box.appendChild(div);
+        };
+        this.target.style.width = length * (96 + 2) + 'px';
+        this.target.appendChild(box);
+      };
+
+      Test.prototype.create = function(arr) {
+        var span, 
+            html = '',
+            div = document.createElement('div')
+            nums = arr[0],
+            cnt = arr[1],
+            time = arr[2];
+        div.className = 'box';
+        for (var i = 1; i <= nums; i++) {
+          span = document.createElement('span');
+          span = '<span class="tags" style="position: relative; z-index:' + i + '; bottom: -' + i*14 + 'px"></span>';
+          if (i===nums) {
+            span = '<span class="tags" style="position: relative; z-index:' + i + '; bottom: -' + i*14 + 'px"><i class="i" style="position: relative; bottom: 120%;">' + cnt + '</i></span>';
+          };
+          html = span + html; 
+        };
+        div.innerHTML = html;
+        return div;
+      };
+
+      var obj = new Test(arr, document.querySelector('.swiper-box'));
+
+      var a = '1'
+      switch (a) {
+        case '1':
+          console.log(11111)
+          break;
+      }
+    })(window);
+  </script>
+</body>
+</html> 

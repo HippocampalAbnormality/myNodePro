@@ -1,0 +1,89 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"><meta name=apple-mobile-web-app-capable content=yes><meta name=format-detection content="telephone=no"><meta name=description content="iSeecapital依托Fintech（金融科技）力量打造的互联网财富管理平台,国内唯一致力于五大战略新兴板块,发行以上市公司为主体的类固收私募基金产品的互联网财富平台 。"><meta http-equiv=Cache-Control content=no-cache><title>iSeecapital您的智慧财富管理伙伴</title><script>(function () {
+        // 安卓 4.4 以下，跳转到 PC 版
+        var ua = navigator.userAgent;
+        var doc = window.document;
+        var docEl = doc.documentElement;
+
+        if (ua.substr(ua.indexOf('Android') + 8, 3) * 1 < 4.4) {
+          location.href = 'https://www.iseecapital.com';
+        }
+
+        // 检验是否为 ios 客户端
+        if (/iphone|ipod/.test(ua.toLowerCase())) {
+          window.isIOS = true
+        } else {
+          window.isIOS = false
+        }
+
+        // 设置 rem 基准值
+        var width = docEl.getBoundingClientRect().width;
+        var rem = parseInt(width) / 10;
+        docEl.style.fontSize = rem + 'px';
+
+        // 检验是否为 ios app
+        if (ua.indexOf('_ISEE_IOS_') > -1) {
+          if (ua.indexOf('_iPhoneX_') > -1) {
+            docEl.classList.add('iphoneX')
+          } else {
+            docEl.classList.add('ios-app')
+          }
+        }
+
+        function loadAsyncScript (src) {
+          var el = document.createElement('script');
+          el.src = src;
+          el.setAttribute('async', 'true');
+          document.head.appendChild(el); 
+        }
+
+        // 加载平台适配相关 js
+        window.isApp = ua.indexOf('_ISEE_ANDROID_') > -1 || ua.indexOf('_ISEE_IOS_') > -1;
+        if (isApp) {
+          loadAsyncScript('/webapp/static/app-bridge.js')
+        }
+
+        // var isWexin = ua.toLowerCase().indexOf('micromessenger');
+        // if (isWexin) {
+        //   createScript('https://res.wx.qq.com/open/js/jweixin-1.2.0.js')
+        //   createScript('/webapp/static/we-share.js')
+        // }
+      })();</script><style>.svg-initial-loading {
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        margin: auto;
+      }
+      .svg-loader {
+        fill: transparent;
+        -webkit-animation: showload 2s infinite linear;
+        animation: showload 2s infinite linear;
+        -webkit-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        stroke: #14284f;
+        stroke-width: 2;
+        fill: none;
+        stroke-linecap: round
+      }
+      .svg-rotator {
+        -webkit-animation: rotateme 1s infinite linear;
+        animation: rotateme 1s infinite linear;
+        -webkit-transform-origin: 30px 30px;
+        transform-origin: 30px 30px;
+      }
+      @-webkit-keyframes showload {
+        0%    { stroke-dashoffset: 0; stroke-dasharray: 1,214 }
+        50%   { stroke-dashoffset: -24; stroke-dasharray: 80,214 }
+        100%  { stroke-dashoffset: -107; stroke-dasharray: 80,214 }
+      }
+      @keyframes showload {
+        0%    { stroke-dashoffset: 0; stroke-dasharray: 1,214 }
+        50%   { stroke-dashoffset: -24; stroke-dasharray: 80,214 }
+        100%  { stroke-dashoffset: -107; stroke-dasharray: 80,214 }
+      }
+      @-webkit-keyframes rotateme {
+        0%    { transform: rotate(0deg); -webkit-transform: rotate(0deg) }
+        100%  { transform: rotate(360deg); -webkit-transform: rotate(360deg) }
+      }
+      @keyframes rotateme {
+        0%    { transform: rotate(0deg);  -webkit-transform: rotate(0deg)}
+        100%  { transform: rotate(360deg); -webkit-transform: rotate(360deg) }
+      }</style><script src=/webapp/static/app-bridge.js></script><link href=http://localhost:3000/webapp/static/css/app.b7e6b8fe.css rel=stylesheet></head><body ontouchstart=""><svg xmlns=http://www.w3.org/2000/svg xmlns:xlink=http://www.w3.org/1999/xlink preserveAspectRatio=xMidYMid width=60 height=60 viewBox="0 0 60 60" class=svg-initial-loading id=initial-loading><g class=svg-rotator><circle class=svg-loader cx=30 cy=30 r=17 stroke-dasharray=107 stroke-dashoffset=160 /></g></svg><div id=app></div><script src=/webapp/static/zepto.min.js></script><script type=text/javascript src=http://localhost:3000/webapp/static/js/manifest.6eec7156.js></script><script type=text/javascript src=http://localhost:3000/webapp/static/js/vendor.4c39bd32.js></script><script type=text/javascript src=http://localhost:3000/webapp/static/js/app.e92b4d86.js></script></body></html>

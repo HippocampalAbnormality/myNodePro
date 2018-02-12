@@ -1,0 +1,187 @@
+body {
+  background-image: url('/images/landingPage/bg.jpg');
+}
+.banner {
+  width: 100%;
+  display: block;
+}
+.zhuce {
+  width: 92%;
+  background-color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+}
+.redPack {
+  width: 100%;
+  display: block;
+  margin-top: 1rem;
+}
+
+.show {
+  position: relative;
+  margin-bottom: .4rem;
+}
+.show img {
+  width: 60%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.show .cnt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: .9rem;
+  color: #ffffff;
+}
+
+.sec {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+  width: 92%;
+  border-radius: 4px;
+  background-color: #ffffff;
+  padding: 1rem 1.2rem;
+  position: relative;
+}
+.sec-cnt {
+  border-radius: 4px;
+  background-color: #fffaeb;
+  color: #fb6334;
+  text-align: center;
+  font-size: 1.35rem;
+  padding-top: .8rem;
+  padding-bottom: .7rem;
+}
+.sec-cnt .line {
+  margin-top: .4rem;
+  font-size: .65rem;
+  color: #d7c99e;
+}
+.sec-cnt .yuan, .sec-cnt .lang {
+  display: inline-block;
+  width: 1.2rem;
+  height: 1.2rem;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #ffffff;
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, .2);
+  position: relative;
+}
+.sec-cnt .yuan::before, .sec-cnt .lang::before {
+  content: '+';
+  position: absolute;
+  left: 0; top: 0;
+  font-size: .9rem;
+  font-weight: bold;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+.sec-cnt .lang::before {
+  content: '~';
+}
+.sec .btn {
+  display: block;
+  color: #ffffff;
+  background-color: #f5463f;
+  border-radius: 3px;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  text-align: center;
+  font-size: .85rem;
+  margin-top: .8rem;
+}
+.sec .btn:active {
+  background-color: #df271f;
+}
+.sec .img {
+  position: absolute;
+  left: -.14rem;
+  top: -.14rem;
+  width: 5.6rem;
+}
+
+.adv {
+  width: 92%;
+  border-radius: 4px;
+  background-color: #ffffff;
+  padding: .3rem 1rem .3rem 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  font-size: 0;
+}
+.adv .item {
+  position: relative;
+  padding-left: 3.4rem;
+  padding-top: .6rem;
+  padding-bottom: .6rem;
+}
+.adv .img {
+  width: 16%;
+  position: absolute;
+  left: .2rem;top: 50%;
+  transform: translateY(-50%);
+}
+.adv .cnt {
+  font-size: .65rem;
+  color: #a87553;
+  line-height: 2;
+}
+.adv .head {
+  font-weight: bold;
+}
+
+.take {
+  width: 70%;
+  height: 6rem;
+  background-image: url('/images/landingPage/btn.png');
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+}
+.tip {
+  color: #d66c2c;
+  font-size: .6rem;
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+
+.register { background-color: #fff; padding: 8.26% 8.26% 6.26% 8.26%; margin-bottom: 3.8667%; }
+.register input { color: #1b2b46; border: 1px solid #d7d7d7; padding: .56rem 1.4rem; font-size: .7rem; width: 100%; border-radius: 2px; margin-bottom: .7rem; position: relative; }
+.register input::-webkit-input-placeholder { color: #d7d7d7; }
+.register input.err { border: 1px solid #ee5555; color: #ee5555; }
+.register .code { width: 60%; margin-right: .6rem;}
+.register .code1 { width: 100%; }
+.register .item { display: flex; display: -webkit-box; display: -webkit-flex; align-items: center; -webkit-box-align: center; -webkit-align-items: center; justify-content: space-between; -webkit-box-pack: space-between; -webkit-justify-content: space-between; margin-bottom: 1rem; position: relative; }
+.register .item:before { content: ''; display: block; width: .7rem; height: .91rem; background-image: url("/images/landingPage/mobile_g.png"); background-size: 100% auto; background-repeat: no-repeat; position: absolute; z-index: 10; left: .42rem; top: 50%; transform: translateY(-50%); -webkit-transform: translateY(-50%); }
+/* .register .item.err:before { background-image: url("/images/landingPage/mobile_r.png"); } */
+.register .item:nth-child(2):before { background-image: url("/images/landingPage/lock_g.png"); width: .77rem; height: 1.015rem; }
+/* .register .item.err:nth-child(2):before { background-image: url("/images/landingPage/lock_r.png"); width: 1.1rem; height: 1.015rem; } */
+.register .item:nth-child(3):before { background-image: url("/images/landingPage/book_g.png"); width: .91rem; height: .98rem; }
+/* .register .item.err:nth-child(3):before { background-image: url("/images/landingPage/book_r.png"); width: .91rem; height: .98rem; } */
+.register .item .look { width: 1.05rem; height: 1.05rem; background-image: url("/images/landingPage/look_n.png"); background-size: 100% auto; background-repeat: no-repeat; position: absolute; z-index: 10; right: .42rem; top: 50%; transform: translateY(-50%); -webkit-transform: translateY(-50%); }
+.register .item .look.true { background-image: url("/images/landingPage/look_y.png"); }
+.register .item input { margin-bottom: 0; }
+.register .item .send { width: 38%; background-color: #fdad01; color: #fff; border-radius: 2px; padding-top: .42rem; padding-bottom: .42rem; border: 1px solid transparent; }
+.register .item .send:active { background-color: #e88c09; }
+.register .item .send.font_small { background-color: #d7d7d7; pointer-events: none; }
+.register .err-tip { text-align: center; color: #ee5555; margin-bottom: .7rem; line-height: 1; font-size: .6rem }
+.register .err-tip .box { position: relative; display: inline-block; padding-left: 10%; display: none; }
+.register .err-tip .box a { color: #445c96 !important; }
+.register .err-tip .box:before { position: absolute; left: 1%; top: 50%; transform: translateY(-50%); -webkit-transform: translateY(-50%); content: ''; width: .875rem; height: 1.05rem; background-image: url("/images/landingPage/forbid.png"); background-repeat: no-repeat; background-size: 100% auto; }
+.register .redpack { background-color: #f5463f; width: 100%; font-size: .85rem; color: #fff; line-height: 1; border-radius: 2px; padding: .6rem 0;}
+.register .redpack:active { background-color: #df271f; }
+.register .had { margin-top: .84rem; color: #747474; text-align: center; }
+.register .had .login { color: #747474; font-size: .6rem; text-decoration: none;}
+.login-tip { color: #f5473f; }
+
+#valicode-li { position: relative; }
+#valicode-li .vcode-wrapper { position: absolute; right: 0; top: 0; height: 100%; width: 94px; }
+#valicode-li .vcode-wrapper img { width: 100%; height: 100%; }

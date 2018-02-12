@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>预约结果</title>
+  <link rel="stylesheet" href="/stylesheets/common.css">
+  <link rel="stylesheet" href="/stylesheets/yyjg.css">
+  <script src="/javascripts/commen/rem.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="top">
+      <img class="ok" src="/images/yyjg/ok.png">
+      <p class="line">预约成功，目前排在第<span class="red">1090</span>名</p>
+    </div>
+
+    <div class="bottom">
+      <p class="line">
+        <span class="left">预约金额</span>
+        <span class="f-r">1,000.00元</span>
+      </p>
+
+      <p class="line">
+        <span class="left">预约奖励</span>
+        <span class="f-r">5.00%</span>
+      </p>
+
+      <p class="line">
+        <span class="left">预期年化收益</span>
+        <span class="f-r icon-box">5.00%~13.00%<img class="icon" src="/images/yyjg/icon.png"></span>
+      </p>
+
+      <p class="line">
+        <span class="left">使用加息券</span>
+        <span class="f-r">1.00%</span>
+      </p>
+
+      <p class="line">
+        <span class="left">加息时间</span>
+        <span class="f-r">10天</span>
+      </p>
+
+      <p class="line">
+        <span class="left">收益方式</span>
+        <span class="f-r">利息复投</span>
+      </p>
+    </div>
+  </div>
+
+  <a class="btn">我知道了</a>
+
+  <%=originalUrl%>
+  <%=baseUrl%>
+  <%=path%>
+
+  <script>
+    window.req = '<%=req%>';
+    window.res = '<%=res%>';
+  </script>
+</body>
+</html>

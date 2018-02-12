@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>随便</title>
+  <link rel="stylesheet" href="/stylesheets/common.css">
+  <script src="/javascripts/commen/rem.js"></script>
+  <style>
+    body {
+      background-color: #eeeeee;
+    }
+    .more {
+      color: #aaaaaa;
+      font-size: .7rem;
+      text-align: center;
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+    .word {
+      display: inline-block;
+      position: relative;
+    }
+    .word::before, .word::after {
+      content: '';
+      position: absolute; 
+      top: 50%;
+      left: 130%;
+      width: 4rem;
+      height: 1px;
+      background-color: #aaaaaa;
+    }
+    .word::after {
+      left: auto;
+      right: 130%;
+    }
+
+    .btn {
+      border-radius: 3px;
+      display: block;
+      width: 92%;
+      line-height: 1;
+      background-color: #EF5A50;
+      font-size: .8rem;
+      color: #ffffff;
+      text-align: center;
+      padding-top: .5rem;
+      padding-bottom: .5rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .line {
+      font-size: .8rem;
+      color: #aaaaaa;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      padding-left: 4%;
+      padding-right: 4%;
+    }
+  </style>
+</head>
+<body>
+  <!-- <div class="more"><span class="word">没有更多了</span></div> -->
+  <p class="line">
+    您已发起退出，预计在3个工作日内完成，具体退出完成时间视市场交易情况而定。
+  </p>
+
+  <a class="btn">返回</a>
+</body>
+</html>

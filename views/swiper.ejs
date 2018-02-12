@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      padding-top: 200px;
+      background-color: #eee;
+    }
+    .swiper {
+      width: 1000px;
+      height: 200px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #fff;
+      position: relative;
+      overflow: hidden; 
+    }
+    .box {
+      font-size: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;;
+    }
+    .item {
+      height: 100%;;
+      padding: 30px;
+      box-sizing: border-box;
+      display: inline-block;
+      font-size: 20px;
+    }
+    .tip {
+      width: 20px;
+      height: 40px;
+      background-color: royalblue;
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      margin-top: -20px;
+      z-index: 100;;
+    }
+    .tip.next {
+      left: auto;
+      right: 10px;
+    }
+    .tip:active {
+      opacity: .9;
+    }
+    .points {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      bottom: 0;
+      text-align: center;
+    }
+    .point {
+      display: inline-block;
+      height: 4px;
+      width: 20px;
+      border-radius: 2px;
+      background-color: bisque;
+      margin-right: 10px;
+    }
+    .point:last-child {
+      margin-right: 0;
+    }
+    .point.cur {
+      background-color: royalblue;
+    }
+
+
+    .item {
+      font-size: 0;
+      text-align: center;
+    }
+    .sec {
+      display: inline-block;
+      width: 227.5px;
+      margin-right: 10px;
+      height: 100%;
+      font-size: 20px;
+      background-color: rgb(13, 105, 90);    
+      box-shadow: 0 0 10px rgba(0, 0, 0, .5);  
+    }
+    .sec:last-child {
+      margin-right: 0;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="swiper" class="swiper">
+    <div class="tip next"></div>
+    <div class="tip pre"></div>
+
+    <div class="box">
+      <div class="item">
+        <div class="sec">1</div>
+        <div class="sec">2</div>
+        <div class="sec">3</div>
+        <div class="sec">4</div>
+      </div>
+      <div class="item">
+        <div class="sec">5</div>
+        <div class="sec">6</div>
+        <div class="sec">7</div>
+        <div class="sec">8</div>
+      </div>
+    </div>
+    
+    <div class="points">
+    </div>
+  </div>
+  <script src="/javascripts/commen/jquery.1.9.1.js"></script>
+  <script>
+    (function() {
+      function Test(tar, time) {
+        if (typeof tar !== 'object') {
+          throw new TypeError('传正常dom能不能行？！');
+        };
+        this.swiperNum = 0;
+        this.time = time || 400;
+        this.tar = tar;
+        this.w = tar.width();
+        this.points = tar.children('.points');
+        this.box = tar.children('.box');
+        this.items = this.box.children('.item');
+        this.len = this.items.length;
+        this.create();
+        this.bindEvent($('.tip'), this.box);
+        this.createPoint();
+      };
+      Test.prototype.create = function() {
+        this.box.width(this.len*this.w);
+        this.items.width(this.w);
+        
+      };
+      Test.prototype.bindEvent = function(click, move) {
+        var that = this,
+            start = false, end = false, distance = false,
+            startLeft = false;
+        if (typeof click === 'object') {
+          this.tar.on('click', click, function(e) {
+            if ($(e.target).hasClass('next')) {
+              if (that.swiperNum < that.len-1) {
+                that.swiperNum++;
+                that.animate();
+                that.changePoint();
+              };
+            };
+            if ($(e.target).hasClass('pre')) {
+              if (that.swiperNum > 0) {
+                that.swiperNum--;
+                that.animate();
+                that.changePoint();
+              };
+            };
+          });
+        };
+
+        if (typeof move === 'object') {
+          $('html').on('mousedown', move, function(e) {
+            start = e.clientX;
+            startLeft = parseFloat(that.box.css('left'));
+          });
+          $('html').on('mousemove', move, function(e) {
+            if (start) {
+              that.box.css('left', startLeft + (e.clientX - start));
+            };
+          });
+          $('html').on('mouseup', function(e) {
+            end = e.clientX;
+            distance = end - start;
+            start = false;
+            that.watch(distance);
+          });
+        };
+      };
+      Test.prototype.animate = function() {
+        this.box.animate({
+          left: -this.swiperNum*this.w
+        }, this.time);
+      };
+      Test.prototype.createPoint = function() {
+        var html = '',
+            i;
+        for (i = 0; i < this.len; i++) {
+          if (i === this.swiperNum) {
+            html += '<span class="point cur"></span>';
+          } else {
+            html += '<span class="point"></span>';
+          };
+        };
+        this.points.html(html);
+      };
+      Test.prototype.changePoint = function() {
+        if (!this.cach) {
+          this.cach = $('.point');
+        };
+        this.cach.removeClass('cur').eq(this.swiperNum).addClass('cur');
+      };
+      Test.prototype.watch = function(distance) {
+        if (distance > this.w/3) {
+          if (this.swiperNum > 0) {
+            this.swiperNum--;
+          };
+          this.changePoint();
+          this.animate();
+        };
+        if (distance < -this.w/3) {
+          if (this.swiperNum < this.len-1) {
+            this.swiperNum++;
+          };
+          this.changePoint();
+          this.animate();
+        };
+
+        if (distance < this.w/3 && distance > 0) {
+          this.animate();
+        };
+        if (distance > -this.w/3 && distance < 0) {
+          this.animate();
+        };
+      };
+
+      var obj = new Test($('#swiper'));
+    })();
+  </script>
+</body>
+</html>

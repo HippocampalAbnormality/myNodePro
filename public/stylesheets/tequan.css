@@ -1,0 +1,79 @@
+.container {
+  padding: 1rem .8rem;
+}
+.title, .line {
+  font-size: .7rem; color: #333333;
+  line-height: 1.8; padding-left: 1rem;
+}
+.title {
+  font-weight: bold;
+  position: relative;
+}
+.icon {
+  position: absolute;
+  left: 0; top: 50%;
+  transform: translateY(-50%);
+  width: 14px; height: 14px;
+  background-image: url('/images/rank/special.png');
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+}
+.icon-2 {
+  background-position-y: -15px;
+}
+.icon-3 {
+  background-position-y: -29px;
+}
+
+.rank {
+  margin-top: 1rem;
+  margin-bottom: 1.4rem;
+  border: 1px solid #cccccc;
+}
+.item {
+  display: table;
+  width: 100%;
+  font-size: .75rem;
+  color: #333333;
+  text-align: center;
+  border-top: 1px solid #cccccc;
+}
+.item:first-child {
+  border-top: none;
+  background-color: #f3f4f9;
+}
+.item-l, .item-r {
+  display: table-cell;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+}
+.item-l {
+  width: 30%;
+  border-right: 1px solid #cccccc;
+}
+.item-r {
+  width: 70%;
+}
+.rank-icon {
+  width: 17px;
+  height: 11px;
+  display: inline-block;
+  background-image: url('/images/rank/sprit.png');
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+}
+.rank-icon-2 {
+  background-position-y: -13px;
+}
+.rank-icon-3 {
+  background-position-y: -25px;
+}
+.rank-icon-4 {
+  background-position-y: -37px;
+}
+.rank-icon-5 {
+  background-position-y: -48px;
+}
+.rank-icon-6 {
+  background-position-y: -60px;
+}

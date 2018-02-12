@@ -1,0 +1,1 @@
+{"dependencies":[],"generated":{"js":"class Test {\r\n  constructor(name) {\r\n    this.name = name;\r\n  }\r\n\r\n  sayName() {\r\n    console.log(this.name);\r\n  }\r\n};"},"hash":"567aa601422dde4b7bcd5a390ae047de"}
