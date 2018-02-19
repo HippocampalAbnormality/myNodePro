@@ -2,24 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title><%= title %></title>
   <link rel="stylesheet" href="/stylesheets/style.css">
   <script src="/javascripts/commen/rem.js"></script>
-  <style>
-    body {
-      -webkit-touch-callout:none;
-      -webkit-user-select:none;
-      -khtml-user-select:none;
-      -moz-user-select:none;
-      -ms-user-select:none;
-      user-select:none;
-    }
-  </style>
 </head>
-<body unselectable="on" onselectstart="return false;">
-  <div class="container" > 
+<body>
+  <div class="container"> 
     <img class="banner" src="/images/infoShow/banner.jpg">
 
     <div id="info" class="sec">
@@ -29,7 +19,7 @@
         <p>爱投资（https://www.itouzi.com）成立于2013年3月31日，总部位于北京，在重庆设有办事处。</p>
         <p>爱投资首创P2C交易模式，围绕核心企业为其上下游提供完备的供应链金融服务，合理运用金融科技的力量，助力实体经济，帮助广大投资者分享金融科技助力实体经济发展的红利。</p>
         <p>成立至今，爱投资取得了良好的经营业绩和社会效益，截至2017年9月，平台交易总额已突破350亿人民币。</p>
-        <p>作为中国互联网金融协会首批会员、爱投资目前已接入央行支付清算协会征信系统、国家互联网安全技术专家委员会综合测评系统、获得公安局颁发的信息系统安全等级保护三级备案证明，并于2017年8月30日上线XX银行存管系统。</p>
+        <p>作为中国互联网金融协会首批会员、爱投资目前已接入央行支付清算协会征信系统、国家互联网安全技术专家委员会综合测评系统、获得公安局颁发的信息系统安全等级保护三级备案证明，并于2017年8月30日上线新网银行存管系统。</p>
         
         <p class="cnt-title">平台基本信息</p>
         <div class="box"> 
@@ -143,7 +133,7 @@
           </div>
           <div class="item">
             <span class="left">客户资金存管银行</span>
-            <span class="right">XX银行</span>
+            <span class="right">新网银行</span>
           </div>
           <div class="item">
             <span class="left">客户资金存管说明</span>
@@ -264,6 +254,105 @@
   </div>
 
   <script src="/javascripts/commen/zepto.min.js"></script>
-  <script src="/javascripts/es6/index.js"></script>
+  <script>
+    window.onload = function() {
+      
+      var tits = $('.title'),
+          secs = $('.sec'),
+          arr = [];
+      tits.each(function(i, v) {
+        arr.push($(v).offset().top);
+      });  
+
+      
+      
+      window.addEventListener('scroll', function() {
+        repaint();
+      }, false);
+
+      function repaint() {
+        var num = sort(document.documentElement.scrollTop || document.body.scrollTop, arr);
+        if (num == 0) {
+          secs.removeClass('fixed').css('padding-top', 0);
+        };
+        if (num > 0) {
+          secs.eq(num -1).addClass('fixed').css('padding-top', tits.eq(num -1).height()).siblings('.sec').css('padding-top', 0).removeClass('fixed'); 
+        };
+      };
+
+      function sort(aim, arr) {
+        if (aim < arr[0]) {
+          return 0;
+        };
+        if (aim >=arr[0] && aim < arr[1]) {
+          return 1;
+        };
+        if (aim >=arr[1] && aim < arr[2]) {
+          return 2;
+        };
+        if (aim >=arr[2] && aim < arr[3]) {
+          return 3;
+        };
+        if (aim >=arr[3] && aim < arr[4]) {
+          return 4;
+        };
+        if (aim >=arr[4] && aim < arr[5]) {
+          return 5;
+        };
+        if (aim >=arr[5] && aim < arr[6]) {
+          return 6;
+        };
+      };
+
+      var itz = {
+        init: function() {
+          this.bindEvent();
+        },
+
+        bindEvent: function() {
+          var that = this;
+          this.getDom.get('#hide').addEventListener('click', function() {
+            that.getDom.get('#info').style.height = '13rem';
+            that.getDom.get('.btn-shadow').style.display = 'block';
+            that.getDom.get('#hide').style.display = 'none';
+
+            
+            arr = [];
+            secs.removeClass('fixed').css('padding-top', 0);
+            tits.each(function(i, v) {
+              arr.push($(v).offset().top);
+            }); 
+            repaint();
+          }, false);
+
+          this.getDom.get('#show').addEventListener('click', function() {
+            that.getDom.get('#info').style.height = 'auto';
+            that.getDom.get('.btn-shadow').style.display = 'none';
+            that.getDom.get('#hide').style.display = 'block';
+
+            
+            arr = [];
+            secs.removeClass('fixed').css('padding-top', 0);
+            tits.each(function(i, v) {
+              arr.push($(v).offset().top);
+            });
+            repaint();
+          }, false);
+        },
+
+        getDom: {
+          doms: {},
+          get: function(selector) {
+            if (!this.doms[selector]) {
+              this.doms[selector] = document.querySelector(selector);
+            };
+            return this.doms[selector];
+          } 
+        }
+      };
+
+      itz.init();
+    };
+  </script>
 </body>
 </html>

@@ -34,4 +34,8 @@ router.get('/mvvm', function(req, res, next) {
   });
 });
 
+router.get('/viewport', function(req, res, next) {
+  res.render('viewport');
+});
+
 module.exports = router;
