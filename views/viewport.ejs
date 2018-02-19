@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		body {
+			margin: 0;
+		}
+		.a {
+			font-size: 2rem;
+		}
+	</style>
+	<script src="/javascripts/commen/rem.js"></script>
+</head>
+<body>
+	<div class="a">	
+		sfdfasd
+	</div>
+	<script>
+		var a = document.querySelector('meta[name=viewport]');
+		function change(scale) {
+		  a.setAttribute('content', 'width=device-width,initial-scale=' + scale + ',maximum-scale=' + scale + ',minimum-scale=' + scale + ',user-scalable=no')
+		}
+		
+		change(.33333)
+	</script>
+</body>
+</html>
