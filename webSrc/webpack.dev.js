@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const WebpackDevPlugin = require('webpack-dev-server')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 const config = {
   entry: {
@@ -42,8 +43,18 @@ const config = {
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new webpack.HotModuleReplacementPlugin(),
+    new UglifyJSPlugin(),
     new HtmlWebpackPlugin({
       template: 'index.html'
+    }),
+    new webpack.DefinePlugin(
+      {
+        'process.env.NODE_ENV': JSON.stringify('development')
+      }
+    ),
+    // webpack最闪耀的点：代码分割
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'common' // 指定公共 bundle 的名称。
     })
   ]
 }
@@ -66,3 +77,5 @@ const server = new WebpackDevPlugin(compiler, options)
 server.listen('9999', '0.0.0.0', () => {
   console.log('dev server listening on port 9999');
 })
+
+console.log(process.env.NODE_ENV)
