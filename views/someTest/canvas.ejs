@@ -1,0 +1,56 @@
+<%include ../common/head.ejs%>
+<style>
+	.canvas {
+		border: 1px solid #aaa;
+	}
+	.app {
+		width: 50px;
+		height: 50px;
+		background-color: antiquewhite;
+	}
+</style>
+</head>
+<body>
+	<div class="app"></div>
+	<canvas class="canvas">
+		当前不支持
+	</canvas>
+
+	<script src="/javascripts/testSrc/digit.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			let app = document.querySelector('.app');
+			app.addEventListener('click', function() {
+				this.style.cssText = 'transition: all 1s cubic-bezier(0.39, 0.58, 0.57, 1); transform: translateX(100px)'
+			}, false);
+
+			
+			let canvas = document.querySelector('canvas'),
+			    cxt = canvas.getContext('2d');
+					canvas.width = 300;
+					canvas.height = 300;
+
+			function render() {
+				let h = 12, m = 23, s = 11;
+			}
+			const R = 10
+			function arc(cxt) {
+				cxt.fillStyle = 'rgb(0, 102, 153)';
+				for (let x = 0; x < digit.length; x++) {
+					for (let y = 0; y < digit[x].length; y++) {
+						for (let z = 0; z < digit[x][y].length; z++) {
+							if (digit[x][y][z] === 1) {
+								cxt.beginPath()
+								cxt.arc(10 + z*2*(R+1)+(R+1), 10 + y*2*(R+1)+(R+1), R, 0, 2*Math.PI)
+								cxt.closePath()
+								cxt.fill()
+							}
+						}
+					}
+				}
+			}
+			arc(cxt)
+		}, false);
+	</script>
+</body>
+</html>

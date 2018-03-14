@@ -12,6 +12,7 @@ var register = require('./routes/register');
 var webapp = require('./routes/webapp');
 var ajax = require('./routes/ajax');
 var gulpPages = require('./routes/gulpPages.js');
+let someTest = require('./routes/someTest');
 
 var app = express();
 
@@ -34,6 +35,7 @@ app.use('/register', register);
 app.use('/webapp', webapp);
 app.use('/ajax', ajax);
 app.use('/gulpPages', gulpPages);
+app.use('/someTest', someTest);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

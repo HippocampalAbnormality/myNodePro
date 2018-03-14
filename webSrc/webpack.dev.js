@@ -11,14 +11,17 @@ const config = {
   },
   devtool: 'inline-source-map',
   output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, 'dist')
+    filename: '[name].bundle.js',
+    chunkFilename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    // publicPath: '/asset/' // 这个用不利索呢
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
+        include: path.resolve(__dirname, "src"),
         use: {
           loader: 'babel-loader',
           options: {
@@ -53,9 +56,10 @@ const config = {
       }
     ),
     // webpack最闪耀的点：代码分割
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'common' // 指定公共 bundle 的名称。
-    })
+    // 既然此插件是为了代码去重，常配合entry手动配置方式，那么我用动态分离方式就不需要他了
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name: 'common' // 指定公共 bundle 的名称。
+    // })
   ]
 }
 
